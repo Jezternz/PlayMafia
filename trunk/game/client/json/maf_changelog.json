@@ -1,0 +1,37 @@
+{
+	"updates":
+	[
+		{
+			"label":"v1.0.2",
+			"date":"12/10/2013",
+			"items":[
+				"Updated new set of default roles."
+			]
+		},
+		{
+			"label":"v1.0.1",
+			"date":"12/10/2013",
+			"items":[
+				"Add roles: Mayor, Survivor, Bus Driver and Jailor (Work in progress).",
+				"Added new help menu accessible from footer or by clicking on role names",
+				"Make Godfather action a collective action shared with mafioso.",
+				"Add a server configurable option to hide roles for dead players",
+				"Adjusted volumes of ingame sounds",
+				"Add random role configurations",
+				"Add ability to view original setup roles"
+			]
+		},
+		{
+			"label":"v1.0.0",
+			"date":"20/07/2013",
+			"items":[
+				"Added roles: Investigator, Consigliere and Framer.",
+				"Added SSL support, should considerably improve speed for many users.",
+				"Add basic sound support with volume in settings.",
+				"Moved dead chat to separate tab",
+				"Fixed voting bug",
+				"Fixed neutral role victory bug."
+			]
+		}
+	]
+}

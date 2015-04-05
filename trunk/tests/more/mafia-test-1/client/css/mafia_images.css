@@ -1,0 +1,61 @@
+/***Global***/
+#mafia_container .mdefaultroleimage,#mafia_container .mdefaultroleicon,#mafia_container .mdefaultactionicon
+{background-image:url('../images/mafia_images.png');background-repeat:no-repeat;}
+
+/*Citizen*/
+#mafia_container .mdefaultroleimage.role0{background-position: -1px -1px;}
+#mafia_container .mdefaultroleicon.role0{background-position:-302px -1px}
+#mafia_container .mdefaultactionicon.action0_0{background-position:-302px -18px;}
+
+/*Doctor*/
+#mafia_container .mdefaultroleimage.role1{background-position: -1px -152px;}
+#mafia_container .mdefaultroleicon.role1{background-position:-302px -152px;}
+#mafia_container .mdefaultactionicon.action1_0{background-position:-302px -169px;}
+
+/*Sherif*/
+#mafia_container .mdefaultroleimage.role2{background-position: -1px -303px;}
+#mafia_container .mdefaultroleicon.role2{background-position:-302px -303px;}
+#mafia_container .mdefaultactionicon.action2_0{background-position:-302px -320px;}
+
+/*Mafioso*/
+#mafia_container .mdefaultroleimage.role3{background-position: -1px -2115px;}
+#mafia_container .mdefaultroleicon.role3{background-position:-302px -2115px;}
+
+/*Godfather*/
+#mafia_container .mdefaultroleimage.role4{background-position: -1px -1964px;}
+#mafia_container .mdefaultroleicon.role4{background-position:-302px -1964px;}
+#mafia_container .mdefaultactionicon.action3_0{background-position:-302px -1981px;}
+
+/*Blackmailer*/
+#mafia_container .mdefaultroleimage.role5{background-position: -1px -2266px;}
+#mafia_container .mdefaultroleicon.role5{background-position:-302px -2266px;}
+#mafia_container .mdefaultactionicon.action4_0{background-position:-302px -2283px;}
+
+/*Vigilante*/
+#mafia_container .mdefaultroleimage.role6{background-position: -1px -454px;}
+#mafia_container .mdefaultroleicon.role6{background-position:-302px -454px;}
+#mafia_container .mdefaultactionicon.action5_0{background-position:-302px -471px;}
+
+/*Escort*/
+#mafia_container .mdefaultroleimage.role7{background-position: -1px -605px;}
+#mafia_container .mdefaultroleicon.role7{background-position:-302px -605px;}
+#mafia_container .mdefaultactionicon.action6_0{background-position:-302px -622px;}
+
+/*Serial Killer*/
+#mafia_container .mdefaultroleimage.role8{background-position: -1px -3172px;}
+#mafia_container .mdefaultroleicon.role8{background-position: -302px -3172px;}
+#mafia_container .mdefaultactionicon.action7_0{background-position: -302px -3189px;}
+
+/*Jester*/
+#mafia_container .mdefaultroleimage.role9{background-position: -1px -3323px;}
+#mafia_container .mdefaultroleicon.role9{background-position: -302px -3323px;}
+
+/*Consort*/
+#mafia_container .mdefaultroleimage.role10{background-position: -1px -2568px;}
+#mafia_container .mdefaultroleicon.role10{background-position: -302px -2568px;}
+#mafia_container .mdefaultactionicon.action8_0{background-position: -302px -2585px;}
+
+/*Bodygaurd*/
+#mafia_container .mdefaultroleimage.role11{background-position: -1px -1813px;}
+#mafia_container .mdefaultroleicon.role11{background-position: -302px -1813px;}
+#mafia_container .mdefaultactionicon.action9_0{background-position: -302px -1830px;}

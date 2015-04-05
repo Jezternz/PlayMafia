@@ -1,0 +1,231 @@
+/* STYLESHEET */
+#menu_plain{	
+	position:absolute;
+	top:0;right:0;bottom:0;left:0;
+	background:#eee;
+	font-family: arial;
+}
+#menu_plain .panel {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottoM: 0;
+	left: 0;
+}
+#menu_plain #menu_box, #menu_plain #listing_box{
+	width:300px;
+	height:200px;
+	border:1px solid gray;
+	padding:20px;
+}
+	#menu_plain #listing_servers_container{
+		position:absolute;
+		margin:20px;
+		left:0;
+		right:0;
+		top:0;
+		bottom:30px;
+		overflow:auto;
+	}
+	#menu_plain #listing_servers_buttons{
+		position:absolute;
+		padding:2px 0 0 0;
+		left:0;
+		right:0;
+		bottom:0;
+		border-width:1px 0 0 0;
+		border-style:solid;
+		border-color:gray;
+		height:27px;
+	}
+		#menu_plain #listing_servers_buttons #button_listing_back{
+			float:right;
+		}	
+	#menu_plain #game_menu_message_container{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+		#menu_plain #game_menu_message_overlay{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: gray;
+			opacity: 0.6;
+		}
+		#menu_plain #game_menu_message_box{
+			position: absolute;
+			width: 300px;
+			height: 200px;
+			background-color: white;
+			border: 1px solid gray;
+			text-align:center;
+			font-family: verdana;
+			font-size: 18px;
+		}
+			#menu_plain #game_menu_message_container .title{
+				padding: 30px 0 0 0;
+			}
+			#menu_plain #game_menu_message_container .remaining{
+				padding: 20px 0 0 0;
+				font-size:14px;
+			}
+			#menu_plain #game_menu_message_container .buttons{
+				padding:20px 0 0 0;
+			}
+#menu_plain #settings_box{
+	width:500px;
+	height:400px;
+	border:1px solid gray;
+	padding:20px;
+	overflow:auto;
+}
+	#menu_plain #settings_container{
+		margin: 20px 0;
+		font-size: 12px;	
+	}
+		#menu_plain #settings_container fieldset{
+			padding: 10px 10px;
+			margin: 0 0 10px 0;
+		}
+			#menu_plain #settings_container legend{
+				font-size: 11px;
+			}
+			#menu_plain #settings_container .setting_single{
+				height:30px;
+			}
+				#menu_plain #settings_container .left_col{
+					width: 50%;
+					float: left;
+					height: 30px;
+				}
+				#menu_plain #settings_container .right_col{
+					width: 50%;
+					float: left;
+					text-align: right;
+					height: 30px;
+				}
+					#menu_plain #settings_container input, #menu_plain #settings_container select, #menu_plain #settings_container option{
+						width: 150px;
+						padding: 0;
+						margin: 0;
+						border: 1px solid gray;
+						height: 20px;
+					}
+#menu_plain #lobby_box{
+	width:500px;
+	height:400px;
+	border:1px solid gray;
+}
+	#menu_plain #lobby_top{
+		position:absolute;
+		left:10px;
+		top:10px;
+		height:260px;
+		width:480px;
+	}
+		#menu_plain #lobby_name{
+			position:absolute;
+			top:0;
+			left:0;
+			height:25px;
+			width:480px;
+		}
+		#menu_plain #lobby_players{
+			position:absolute;
+			top:30px;
+			bottom:0;
+			left:0;
+			width:268px;
+			border:1px dashed gray;
+			overflow:auto;
+		}
+			#menu_plain .lobby_player{
+				position:relative;
+				margin:3px;
+			
+			}
+				#menu_plain .player_ready{
+					margin:10px 5px 0 5px;
+					display:inline-block;
+					width:10px;
+					height:10px;
+					background-color:red;
+				}
+					#menu_plain .player_ready.ready{
+						background-color:green;
+					}
+				#menu_plain .player_name{
+					padding:3px;
+				}
+				#menu_plain .player_host{
+				
+				}
+		#menu_plain #lobby_settings{
+			position:absolute;
+			top:30px;
+			bottom:35px;
+			right:0;
+			width:198px;
+			border:1px dashed gray;
+		}
+			#menu_plain #textarea_lobby_settings{
+				position:absolute;
+				top:0;
+				right:0;
+				bottom:0;
+				left:0;
+				margin:0;
+				padding:0;
+				border: 0px solid white;
+				resize: none;
+			}
+		#menu_plain #lobby_ready{
+			position:absolute;
+			bottom:0;
+			right:0;
+			height:30px;
+			width:200px;
+			text-align:center;
+		}
+	#menu_plain #lobby_bottom{
+		position:absolute;
+		left:10px;
+		bottom:10px;
+		height:110px;
+		width:480px;
+	}
+		#menu_plain #lobby_chat_container{
+			position:absolute;
+			left:0;
+			right:0;
+			bottom:0;
+			top:0;
+		}
+			#menu_plain #lobby_chat_content{
+				position:absolute;
+				left:0;
+				right:0;
+				top:0;
+				height:70px;
+				overflow:auto;
+				border:1px dashed gray;
+				font-size:12px;
+			}
+			#menu_plain #lobby_chat_submit{			
+				position:absolute;
+				left:0;
+				right:0;
+				bottom:0;
+				height:25px;
+			}
+				#menu_plain #button_lobby_chatsend{
+					float:right;
+				}
+				#menu_plain #input_lobby_chatmessage{
+					width:400px;
+				}

@@ -1,0 +1,165 @@
+{
+	"phasenames":[
+		"Actions Phase",
+		"Resolve Actions Phase",
+		"Discussion Phase",
+		"Trial Phase",
+		"Defence Phase",
+		"Lynch Phase",
+		"Lynch Resolve Phase",
+		"Reflection Phase"
+	],
+	"servermessages":{
+	
+		"slept_soundly":				"Everyone slept soundly through the night...",
+		"slept_unsoundly1":				"There was a murder in the night!",
+		"slept_unsoundly3":				"There were murders in the night, not all the town survived!",
+		"slept_unsoundly4+":			"Loud screams could be heard throughout the night!",
+		
+		"life_murder_single":			"{p:#} has been murdered!",
+		"life_murder_single_chat":		"{p:#} was murdered in the night!",
+		"life_murder_multiple":			"[{p:#}] have been been murdered!",
+		"life_murder_multiple_chat":	"Players [{p:#}] were murdered in the night!",
+		
+		"player_trial":					"{p:#} has been elected for trial, and will now present their defence.",
+		"player_trial2":				"{p:#} was put on trial.",
+		"guilty_vote":					"The Town has voted <span style=\"color:red;\"># vote(_s) guilty</span> and <span style=\"color:green;\"># vote(_s) innocent</span>.",
+		"found_guilty":					"{p:#} has been found guilty and will be lynched.",
+		"found_guilty2":				"{p:#} was found guilty and lynched.",
+		"found_innocent":				"{p:#} has been found innocent and will be spared.",
+		"found_innocent2":				"{p:#} was found innocent.",
+		
+		"investigate_suspect_chat":		"{p:#} apon investigation seemed suspicious.",
+		"investigate_legit_chat":		"{p:#} apon investigation seemed legitimate.",		
+		
+		"player_silenced_chat":			"You have been silenced and cannot chat until the day is over.",	
+		
+		"player_blocked1_chat":			"Your night action has been blocked by an escort.",
+		"player_blocked2_chat":			"Your night action has been blocked by a consort."
+		
+	},
+	"victorymessage_main":{
+		"none":"The <span style=\"color:#6A87FA;\">Town</span> and <span style=\"color:#EB3232;\">Mafia</span> both lose!",
+		"town":"The <span style=\"color:#6A87FA;\">Town</span> have won!",
+		"mafia":"The <span style=\"color:#EB3232;\">Mafia</span> have won!"
+	},
+	"victorymessage_sub":{
+		"sub_0":"",
+		"sub_1":"The {0} has completed their objective.",
+		"sub_+":"The {0} and {1} have completed their objectives."
+	},
+	"annonymous_names":{
+		"0":"Jailor",
+		"1":"Prisoner",
+		"2":"Mafia"
+	},
+	"groups":{
+		"-2":{
+			"name":"addplayer",
+			"color":"black",
+			"description":"Select a player to Whisper to."
+		},
+		"-1":{
+			"name":"public",
+			"color":"black",
+			"description":"Chat: The town center public chatter."
+		},
+		"0":{
+			"name":"mafia",
+			"color":"red",
+			"description":"Group: A secret conversation heard by few."
+		}
+	},
+	"roles":{
+		"0":{
+			"name":"Citizen",
+			"description":"As a citizen, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also protect yourself for one night."
+		},
+		"1":{
+			"name":"Doctor",
+			"description":"As a Doctor, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also protect a single player each night."
+		},
+		"2":{
+			"name":"Sheriff",
+			"description":"As a Sheriff, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also investigate a players allegiance each night."
+		},
+		"3":{
+			"name":"Mafioso",
+			"description":"As a Mafioso, you must eliminate all townfolk while keeping the mafia identities hidden. You may secretly talk at night with other mafia."
+		},
+		"4":{
+			"name":"GodFather",
+			"description":"As the GodFather, you must eliminate all townfolk while keeping the mafia identities hidden. You may order a hit on a player once per night."
+		},
+		"5":{
+			"name":"BlackMailer",
+			"description":"As a Blackmailer, you must eliminate all townfolk while keeping the mafia identities hidden, You may also silence one player per night."
+		},
+		"6":{
+			"name":"Vigilante",
+			"description":"As a Vigilante, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also kill an individual at night."
+		},
+		"7":{
+			"name":"Escort",
+			"description":"As an Escort, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also role-block a player each night."
+		},
+		"8":{
+			"name":"Serial Killer",
+			"description":"As a Serial Killer, you win by being the only player left standing. You may also target kill an individual each night."
+		},
+		"9":{
+			"name":"Jester",
+			"description":"As a Jester, you must use deceit to get yourself lynched during the day (not killed at night)."
+		},
+		"10":{
+			"name":"Consort",
+			"description":"As a Consort working with the mafia, you must eliminate all townfolk while keeping the mafia identities hidden. You may also role-block a player each night."
+		},
+		"11":{
+			"name":"Bodygaurd",
+			"description":"As a Bodygaurd, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also gaurd an individual at night, if this person is attacked both you and the attacker will die."
+		}
+	},
+	"roleactions":{
+		"0":{
+			"name":"Protect",
+			"description":"Wear Armour to protect yourself for a night."
+		},
+		"1":{
+			"name":"Heal",
+			"description":"Watch over a player during the night, preventing a single attack."
+		},
+		"2":{
+			"name":"Investigate",
+			"description":"Investigate a player during the night."
+		},
+		"3":{
+			"name":"Order a hit",
+			"description":"Order a hit on a player. This player will be taken out."
+		},
+		"4":{
+			"name":"Silence",
+			"description":"Blackmail a player, preventing them from speaking during the day."
+		},
+		"5":{
+			"name":"Martial Law",
+			"description":"Take the law into your own hands anytime past the third day, kill a player."
+		},
+		"6":{
+			"name":"Distract",
+			"description":"Distract a player for the night, blocking all of their actions."
+		},
+		"7":{
+			"name":"Murder",
+			"description":"Anytime past the second day, murder an unsuspecting player."
+		},
+		"8":{
+			"name":"Entertain",
+			"description":"Entertain a player for the night, blocking all of their night actions."
+		},
+		"9":{
+			"name":"Gaurd",
+			"description":"Gaurd a player, if they are attacked the attacker and gaurd will die but the player being garuded will live."
+		}
+	}
+}

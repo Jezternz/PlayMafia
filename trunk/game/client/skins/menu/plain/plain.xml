@@ -1,0 +1,71 @@
+<div id="menu_plain">
+	<div class="panel" page="menu">
+		<div id="menu_box" class="center_me">
+			<input id="button_menu_tolisting" type="button" value="Game Listing" /><br />
+			<input id="button_menu_rejoin" type="button" value="Rejoin Game" /><br />
+			<input id="button_menu_ragequit" type="button" value="RageQuit Game" /><br />
+			<input id="button_menu_settings" type="button" value="Settings" /><br />
+			<input id="button_menu_logout" type="button" value="Logout" />
+		</div>
+	</div>
+	<div class="panel" page="joining">
+		<div id="game_menu_message_container">
+			<div id="game_menu_message_overlay">&nbsp;</div>
+			<div id="game_menu_message_box" class="center_me">
+				<div class="title">Joining Game</div>
+				<div class="remaining">_</div>
+				<div class="buttons"><input type="button" id="button_menu_cancelrejoin" value="Cancel Join"/></div>
+			</div>
+		</div>
+	</div>
+	<div class="panel" page="settings">
+		<div id="settings_box" class="center_me">
+			Settings!<br />
+			<div id="settings_container"></div>
+			<input id="button_settings_save" type="button" value="Save" />
+			<input id="button_settings_discard" type="button" value="Cancel" />
+		</div>
+	</div>
+	<div class="panel" page="listing">
+		<div id="listing_box" class="center_me">
+			<div id="listing_servers_container">
+			
+			</div>
+			<div id="listing_servers_buttons">
+				<input type="button" value="Create Game" id="button_listing_createserver" />
+				<input type="button" value="Back" id="button_listing_back" />
+			</div>
+		</div>
+	</div>
+	<div class="panel" page="lobby">
+		<div id="lobby_box" class="center_me">
+			<div id="lobby_top">
+				<div id="lobby_name">
+					PlayMafia Game #1
+					<input type="button" value="Leave Game" id="button_lobby_leave" />
+				</div>
+				<div id="lobby_players">						
+				</div>
+				<div id="lobby_settings">
+					<textarea id="textarea_lobby_settings"></textarea>
+				</div>
+				<div id="lobby_ready">
+					<input type="button" value="" id="button_lobby_ready" />
+				</div>
+			</div>
+			<div id="lobby_bottom">
+				<div id="lobby_chat_container">
+					<div id="lobby_chat_content">
+					
+					</div>
+					<div id="lobby_chat_submit">
+						<form id="form_lobby_chat">
+							<input type="text" id="input_lobby_chatmessage" name="lobby_chatmessage" />
+							<input type="submit" value="Send" id="button_lobby_chatsend" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,101 @@
+<div data-mstart="1" data-mhelpid="home" data-mhelpdisplay="Home">
+    <h1>Welcome to PlayMafia</h2>
+    <p>Welcome to PlayMafia's help section, this contains everything you need to know on rules and gameplay.</p>
+    <h2>Help</h2>
+    <ul>
+        <li><span class="link" data-mlinkid="howtoplay">How to play</span></li>
+        <li><span class="link" data-mlinkid="howtohost">How to host</span></li>
+    </ul>
+    <h2>Roles</h2>    
+    {lang.rolecategories}<div class="box_cell" style="border-color:{lang.rolecategories.$.color/}">
+            <div class="box_cell_head link" style="color:{lang.rolecategories.$.color/}" data-mlinkid="role_cat_$">{lang.rolecategories.$.name/}</div>
+            {logic.roles}{?logic.roles.$$.rolecategory==$}<span class="link role_item" data-mlinkid="role_$$" style="color:{lang.roles.$$.color/}">{lang.roles.$$.displayname/}</span>&nbsp;{/}{/}
+    </div>{/}
+    <div class="box_cell" style="border-color:gray">
+        <div class="box_cell_head" style="color:gray;">Random Roles</div>
+        {lang.rolecategories}
+            {logic.randomroles}{?logic.randomroles.$$.rolecategory==$}
+                <span class="link role_item" data-mlinkid="randomrole_$$" style="color:{lang.randomroles.$$.color/}">{lang.randomroles.$$.displayname/}</span>&nbsp;
+            {/}{/}
+        {/}
+    </div>
+</div>
+{lang.rolecategories}<div data-mhelpid="role_cat_$" data-mhelpdisplay="{lang.rolecategories.$.name/}">
+    <h1 style="color:{lang.rolecategories.$.color/};">{lang.rolecategories.$.name/}</h1>
+    <p>{lang.rolecategories.$.description/}</p>
+    <div class="box_cell">
+        <div class="box_cell_head">{lang.rolecategories.$.title/}</div>
+        {logic.roles}{?logic.roles.$$.rolecategory==$}
+            <span class="link role_item" data-mlinkid="role_$$" style="color:{lang.roles.$$.color/}">{lang.roles.$$.displayname/}</span>
+        {/}{/}
+    </div>
+    <div class="box_cell">
+        <div class="box_cell_head">{lang.rolecategories.$.name/} Random Roles</div>
+        {logic.randomroles}{?logic.randomroles.$$.rolecategory==$}
+            <span class="link role_item" data-mlinkid="randomrole_$$" style="color:{lang.randomroles.$$.color/}">{lang.randomroles.$$.displayname/}</span>
+        {/}{/}
+    </div>
+</div>{/}
+{logic.roles}<div data-mhelpparent="role_cat_{logic.roles.$.rolecategory/}" data-mhelpid="role_$" data-mhelpdisplay="{lang.roles.$.displayname/}">
+    <h1 style="color:{lang.roles.$.color/};">{lang.roles.$.displayname/}</h1>
+    <p>{lang.roles.$.description/}</p>
+    <h3>Allegiance:</h2>
+    <span>{lang.rolecategories.(logic.roles.$.rolecategory).name/}</span>
+    <br />
+    <h3>Sherif investigation result:</h2>
+    <span>{logic.roles.$.sheriffresult/}</span>
+    <br />
+    <h3>Detective result:</h2>
+    <span>{logic.roles.$.investigateresult/}</span>
+    <br />
+    <br />
+    <h2>Actions:</h2> 
+    <ul>
+        {logic.roles.$.roleactions}<li>{lang.roleactions.$$.displayname/} - {lang.roleactions.$$.description/}</li>{/}
+    </ul> 
+    <h2>Objectives:</h2>
+    <ul>
+        {lang.goalobjectives.(logic.roles.$.goal)}<li>$$</li>{/}
+    </ul>   
+    <h2>Hints:</h2>
+    <ul>
+        {lang.roles.$.hints}<li>$$</li>{/}
+    </ul>
+</div>{/}
+{logic.randomroles}<div data-mhelpparent="role_cat_{logic.randomroles.$.rolecategory/}" data-mhelpid="randomrole_$" data-mhelpdisplay="{lang.randomroles.$.displayname/}">
+    <h1 style="color:{logic.randomroles.$.color/}">{lang.randomroles.$.displayname/}</h1>
+    <p>This is a random role, at the beginning of the game the player who gets this role is randomly selected to become one of the associated roles.</p>
+    <div class="box_cell">
+        <div class="box_cell_head">Associated Roles:</div>
+        {logic.randomroles.$.possibleroles}
+            <span class="link role_item" data-mlinkid="role_$$" style="color:{lang.roles.$$.color/}">{lang.roles.$$.displayname/}</span>
+        {/}
+    </div>
+</div>{/}
+<div data-mhelpid="howtoplay" data-mhelpdisplay="How to play">
+    <h1>How to Play</h1>
+    <p>Mafia is a game that pits an informed minority (the <span class="link role_item" data-mlinkid="role_cat_1">mafia</span>) against an uninformed majority (the <span class="link role_item" data-mlinkid="role_cat_0">town</span>). The game revolves around days and nights and ends when there is only one side remaining.</p>
+    <h2>Night time&#44; Roles &amp; Actions</h2>
+    <p>At the start of each game, each player is randomly assigned a role aligned with either the mafia or town. Each role has unique actions or abilities they may perform. These actions are usually performed in the night, and may include abilities such as assassinate, protect, investigate and jail. Typically the town will receive clues during the night to help them work out who the mafia are, this usually comes from players with roles such as the sheriff and detective. The Mafia also have the ability to have a private conversation at night, separate to the town.</p> 
+    <h2>Day time &amp; Trial</h2>
+    <p>During the day all players talk publicly, the town must talk to each other and work out who the mafia are. The day starts with discussion, followed by trial. At trial, players may vote against one another, if a player receives an adequate number of votes, they are elected for trial. When a player is elected for trial, they have a set time limit to present a defence. In a players defence, only the elected player may chat, following this players must perform one final innocent or guilty vote.</p>
+    <h2>Deaths &amp; the Graveyard</h2>
+    <p>When players are killed in the day by a trial or at night by someones action, they are taken out of the game and may only talk to other dead players. Their name will appear in the graveyard, which all players can see at any time. Under normal circumstances the players role will also be revealed.</p>
+    <h2>Neutral Roles</h2>
+    <p>The game contains a wide variety of roles that can employ a huge range of different strategies making for very interesting and unpredictable gameplay. To truely understand how mafia works it is a requirement to understand the different roles. It is also worth noting that there is a third alignment, <span class="link role_item" data-mlinkid="role_cat_2">Neutral</span> roles have their own unique objective and typically work separate from the mafia and town. Although having a separate goal to anyone else does make the game more challenging it is also more exciting when you can pull off a win.</p>
+    <h2>End goals</h2>
+    <p>As the game progresses, the number of alive players will go down eventually leading to one sides victory. When the game ends if a side wins all roles aligned with that side will win regardless of if they are still alive. Neutral players can win by themselves or with the mafia or town depending on their goal.</p>
+</div>
+<div data-mhelpid="howtohost" data-mhelpdisplay="Hosting">
+    <h1>How to Host</h1>
+    <p>Hosting is pretty self explanatory, click on create game in the game listing page, and then select the “settings” button, here you can select a variety of settings. Here are some of the common settings to configure:</p>
+    <ul>
+        <li>Role selection - this allows you to build a list of all the roles that will be randomly assigned to players when the game starts.</li>
+        <li>Phase time limits - this allows you to select the length of time for each phase.</li>
+        <li>Naming theme - What kinds of names you want players to be randomly assigned at the start of the game.</li>
+    </ul>
+</div>
+<div data-mhelpid="notfound" data-mhelpdisplay="Not Found">
+    <h1>Help page not found</h2>
+    <span class="link" data-mlinkid="home">Click here to return to the help home page</span>
+</div>

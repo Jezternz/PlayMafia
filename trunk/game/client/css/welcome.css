@@ -1,0 +1,197 @@
+html,body
+{
+	height:100%;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+#welcome_container
+{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	font-family:arial;
+	background:#e6e6e6 repeat top left url('../images/background.png');
+}
+#welcome_container .hidden
+{
+	display:none;
+}
+	#welcome_container .center_title
+	{
+		position:absolute;
+		left:50%;
+	}
+		#welcome_container .main_title
+		{
+			position:absolute;
+			top: 25px;
+            left: -100px;
+			width:350px;
+			height:100px;
+			background:no-repeat center url('../images/logo.png');
+		}
+	#welcome_container .welcome_center{
+		position:absolute;
+		left:50%;
+		height: 100%;
+	}
+        #back_container
+        {
+            position: absolute;
+            left: -280px;
+            top: 60px;
+            width: auto;
+        }
+            #welcome_container .navigation_item
+            {
+                display:inline-block;
+                padding:10px;
+                border-radius:3px;
+                border-width:1px;
+                border-style:solid;
+                border-color:#5A5A5A;
+                font-family:arial;
+                font-weight: bold;
+                color:black;
+                background-image: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
+                box-shadow: 0px 7px 6px -6px #000;
+            }
+            #welcome_container .navigation_item:hover
+            {
+                color:crimson;
+            }
+            #welcome_container .navigation_item:active
+            {
+                background-image: linear-gradient(to top, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
+            }
+		#welcome_container .welcome_panel
+		{
+			position:absolute;
+			left: -280px;
+            top: 120px;
+			width: 560px;
+			background-color:#f0f0f0;
+			border: 1px solid gray;
+			border-radius:3px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+			#welcome_container .welcome_panel .upper
+			{
+				position:relative;
+				height:80px;
+				font-family:verdana;
+				font-size:12px;
+				text-align:center;
+				padding: 20px 30px;
+				border-width: 0 0 1px 0;
+				border-style: dashed;
+				border-color: gray;
+				border-radius: 3px 3px 0 0;
+				background-color:#FAFAFA;
+			}
+				#welcome_container .welcome_panel .upper a
+				{
+					color:black;
+				}
+				#welcome_container .welcome_panel .ff, #welcome_container .welcome_panel .ch
+				{
+					padding: 0 0 0 17px;
+					background-repeat: no-repeat;
+					background-position: left center;
+					font-size: 14px;
+				}
+				#welcome_container .welcome_panel .ch 
+				{
+					background-image: url('../images/chrome-16.png');
+				}
+				#welcome_container .welcome_panel .ff 
+				{
+					background-image: url('../images/firefox-16.png');
+				}
+				.emphasis{
+					font-family:verdana;
+					font-size:15px;
+				}
+			#welcome_container .welcome_panel .lower
+			{
+				position:relative;
+                overflow:hidden;
+			}
+                #welcome_container .lower_loading
+                {
+                    position:relative;
+                    height: 50px;
+                    padding: 20px;
+                    text-align: center;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    background-color: #FFF;
+                    background-repeat: no-repeat;
+                    background-position: center 75%;
+                    background-image: url('../images/loading1.gif');
+                }        
+                #welcome_container .lower_actual{}                
+				#welcome_container .welcome_panel .left, #welcome_container .welcome_panel .right
+				{
+					position:relative;
+					width:240px;
+                    float:left;
+					padding:20px 20px 30px 20px;
+				}
+				#welcome_container .welcome_panel .lower .title
+				{
+					font-family:arial;
+					font-size:18px;
+					font-weight:bold;
+					text-align:left;
+					margin:0 0 20px 0;
+				}
+				#welcome_container .welcome_panel .lower input:focus{
+					box-shadow: inset 0 0 2px #FF5C00;
+				}
+				#welcome_container .welcome_panel .lower input.invalid{
+					border-color: #B90000;
+				}
+				#welcome_container .welcome_panel input[type="text"], #welcome_container .welcome_panel input[type="password"]
+				{
+					margin: 5px 0 0 5px;
+					width: 200px;
+				}
+				#welcome_container .welcome_panel input[type="submit"]
+				{
+					margin: 5px 0 0 75px;
+					width: 150px;
+				}
+                #welcome_container .inputerror
+                {
+                    padding: 4px 0 6px 10px;
+                    font-size: 11px;
+                    color: #B80000;
+                    font-family: verdana;
+                }
+                #welcome_container .remember_me_container
+                {
+                    text-align: right;
+                    padding: 5px 15px 5px 15px;
+                    font-family: verdana;
+                    font-size: 13px;
+                    color: #808080;
+                }
+                #welcome_container #mafia_login_remember_me
+                {
+                    position: relative;
+                    top: 2px;
+                }
+	#mafia_container
+	{
+		position:absolute;
+		position:fixed;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		background:#eee;
+	}

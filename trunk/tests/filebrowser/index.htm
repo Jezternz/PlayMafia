@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style type="text/css">
+			body
+			{
+				font-family:arial;
+				font-size:0.8em;
+			}
+			#container
+			{
+				padding:10px 20px 30px 20px;
+				width:800px;
+				background:#efefef;
+				margin: 0 auto;
+				border:2px solid gray;
+			}
+			#status
+			{
+				height:30px;
+			}
+			td
+			{
+				padding: 5px;
+				background: #ECECEC;
+				border: 1px solid #D5D5D5;
+			}
+		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				function processFiles(fileList)
+				{
+					var oldVals = {};
+					fileList.map(function(fileData)
+					{
+						var match = $('#modify tr')
+							.filter(function(i, el){return $(el).data('filename') == fileData.fileName;})
+							.map(function(i, el){return $(el).find('input[type="text"]').val();});
+						if(match)
+						{
+							oldVals[fileData.fileName] = match[0];
+						}
+					});						
+					$('#modify').empty();
+					fileList.forEach(function(fileData){
+						var jqo = $(
+							'<tr>'+
+								'<td>'+fileData.fileName+'<input name="filename" type="hidden" value="'+fileData.fileName+'"/></td>'+
+								'<td>'+fileData.size+'</td>'+
+								'<td>'+
+									'<input type="text" placeholder="data" name="appenddata" value="'+(oldVals[fileData.fileName] || "")+'" />'+
+									'<input type="button" class="append" value="append"/>'+
+								'</td>'+
+								'<td><input type="button" class="remove" value="remove"/></td>'+
+								'<td><input type="button" class="view" value="view"/></td>'+
+							'</tr>'
+						);
+						jqo.data('filename', fileData.fileName);
+						jqo.appendTo('#modify');						
+					});
+				}
+				$(document).ajaxStart(function() {
+					$('#status').html('Loading...')
+					$('input').prop('disabled', true);
+				});
+				$(document).ajaxComplete(function(ev, xmlHttpResp) {
+					$('input').prop('disabled', false);
+					var data = xmlHttpResp.responseJSON || {};
+					if(data.dir)
+					{
+						$('#dir').html(data.dir);
+					}
+					if(data.files)
+					{
+						processFiles(data.files);
+					}
+					if(data.message)
+					{
+						$('#status').html(data.message);
+					}
+					if(typeof data.data != 'undefined')
+					{
+						$('#filecontent').html(
+							'<h2>File: '+data.fileName+'</h2><br />'+
+							(data.data || "---Empty---")
+						);
+					}
+					else
+					{
+						$('#filecontent').empty();
+					}
+				});
+				$('#new').submit(function(e){
+					e.preventDefault();
+					$.getJSON("/addfile?"+$(this).serialize());
+					$(this)[0].reset();
+				});
+				$('#modify').click(function(ev){
+					if($(ev.target).is('input[type="button"]'))
+					{
+						var p = $(ev.target).closest('tr');
+						if(p)
+						{
+							var serialized = p.find('input').serialize();
+							switch($(ev.target).attr('class'))
+							{
+								case 'append':
+									$.getJSON("/append?"+serialized);									
+								break;
+								case 'remove':
+									$.getJSON("/remove?"+serialized);
+								break;
+								case 'view':
+									$.getJSON("/view?"+serialized);
+								break;
+							}
+						}
+					}
+				});
+				$.getJSON('/listfiles');
+			})
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<h1>Node File Browser (<span id="dir"></span>)</h1>
+			<div id="status">Loading...</div>
+			<br />
+			<form method="post" id="new">
+				<input type="text" placeholder="Filename" name="filename" />
+				<input type="text" placeholder="File Text" name="filedata" />
+				<input type="submit" value="create" />
+			</form>
+			<br />
+			<table>
+				<thead>
+					<tr><td>Filename</td><td>Size</td><td>Append</td><td>Remove</td><td>View</td></tr>
+				</thead>
+				<tbody id="modify"></tbody>
+			</table>
+			<br />
+			<div id="filecontent"></div>
+		</div>
+	</body>
+</html>

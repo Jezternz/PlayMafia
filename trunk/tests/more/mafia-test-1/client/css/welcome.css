@@ -1,0 +1,148 @@
+html,body
+{
+	height:100%;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+#welcome_container
+{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	font-family:arial;
+	background:#e6e6e6 repeat top left url('../images/background.png');
+}
+#welcome_container .hidden
+{
+	display:none;
+}
+	#welcome_container .center_title
+	{
+		position:absolute;
+		left:50%;
+	}
+		#welcome_container .main_title
+		{
+			position:absolute;
+			top:10px;
+			left:-175px;
+			width:350px;
+			height:100px;
+			background:no-repeat center url('../images/logo.png');
+		}
+	#welcome_container .welcome_center{
+		position:absolute;
+		left:50%;
+		height: 100%;
+	}
+		#welcome_container .welcome_panel
+		{
+			position:absolute;
+			left:-280px;
+			top:130px;
+			width: 560px;
+			height: 430px;
+			background-color:#f0f0f0;
+			border: 1px solid gray;
+			border-radius:3px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+			#welcome_container .welcome_panel .upper
+			{
+				position:absolute;
+				top:0;
+				left:0;
+				right:0;
+				height:80px;
+				font-family:verdana;
+				font-size:12px;
+				text-align:center;
+				padding: 20px;
+				border-width: 0 0 1px 0;
+				border-style: dashed;
+				border-color: gray;
+				border-radius: 3px 3px 0 0;
+				background-color:#FAFAFA;
+			}
+				#welcome_container .welcome_panel .upper a
+				{
+					color:black;
+				}
+				#welcome_container .welcome_panel .ff, #welcome_container .welcome_panel .ch
+				{
+					padding: 0 0 0 17px;
+					background-repeat: no-repeat;
+					background-position: left center;
+					font-size: 14px;
+				}
+				#welcome_container .welcome_panel .ch 
+				{
+					background-image: url('../images/chrome-16.png');
+				}
+				#welcome_container .welcome_panel .ff 
+				{
+					background-image: url('../images/firefox-16.png');
+				}
+				.emphasis{
+					font-family:verdana;
+					font-size:15px;
+				}
+			#welcome_container .welcome_panel .lower
+			{
+				position:absolute;
+				top:120px;
+				left:0;
+				right:0;
+				bottom:0;
+			}
+				#welcome_container .welcome_panel .left, #welcome_container .welcome_panel .right
+				{
+					position:absolute;
+					top:0;
+					bottom:0;
+					padding:20px;
+				}
+				#welcome_container .welcome_panel .left
+				{
+					left:0;
+					right:50%;
+				}
+				#welcome_container .welcome_panel .right
+				{
+					left:50%;
+					right:0;
+				}
+				#welcome_container .welcome_panel .lower .title
+				{
+					font-family:arial;
+					font-size:18px;
+					font-weight:bold;
+					text-align:left;
+					margin:0 0 20px 0;
+				}
+				#welcome_container .welcome_panel .lower input:focus{
+					outline: 1px solid #AF0000;
+				}
+				#welcome_container .welcome_panel input[type="text"], #welcome_container .welcome_panel input[type="password"]
+				{
+					margin: 5px 0 0 5px;
+					width: 200px;
+				}
+				#welcome_container .welcome_panel input[type="submit"]
+				{
+					margin: 25px 0 0 75px;
+					width: 150px;
+				}
+	#mafia_container
+	{
+		position:absolute;
+		position:fixed;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		background:#eee;
+	}

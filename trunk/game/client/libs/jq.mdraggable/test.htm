@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="jq.mdraggable.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                
+                var outputText = function(str)
+                {
+                    $('#output').prepend('<div>'+str+'</div>');
+                    if($('#output').children().size() > 10)
+                    {
+                        $('#output').children().last().remove();
+                    }
+                }
+                $('#a').mdraggable({
+                    'onchange':function(obj){outputText('1=>'+JSON.stringify(obj))},
+                    'move-handle':$('#b'),
+                    'top-limit':100,
+                    'right-limit':100,
+                    'bottom-limit':100,
+                    'left-limit':100,
+                    'n-handle':$('#c_n'),
+                    'ne-handle':$('#c_ne'),
+                    'e-handle':$('#c_e'),
+                    'se-handle':$('#c_se'),
+                    's-handle':$('#c_s'),
+                    'sw-handle':$('#c_sw'),
+                    'w-handle':$('#c_w'),
+                    'nw-handle':$('#c_nw')
+                });
+                $('#a2').mdraggable({
+                    'onchange':function(obj){outputText('2=>'+JSON.stringify(obj))},
+                    'attachx':'right',
+                    'attachy':'bottom',
+                    'minheight-limit':200,
+                    'maxheight-limit':400,
+                    'minwidth-limit':200,
+                    'maxwidth-limit':400,
+                    'move-handle':$('#b2'),
+                    'n-handle':$('#c2_n'),
+                    'ne-handle':$('#c2_ne'),
+                    'e-handle':$('#c2_e'),
+                    'se-handle':$('#c2_se'),
+                    's-handle':$('#c2_s'),
+                    'sw-handle':$('#c2_sw'),
+                    'w-handle':$('#c2_w'),
+                    'nw-handle':$('#c2_nw')
+                });
+            });
+        </script>
+        <style type="text/css">
+            body{background:#ddd;}
+            div{position:absolute;}
+            #a{top:200px;left:200px;width:150px;height:200px;background:#fff;z-index:1;}
+            #a2{bottom:50px;right:200px;width:300px;height:400px;background:#fff;z-index:1;}
+            #b, #b2{top:20px;left:20px;right:20px;height:30px;background:green;color:yellow;text-align:center;}
+            #c_n, #c_e, #c_s, #c_w, #c2_n, #c2_e, #c2_s, #c2_w{background:#eee;text-align:center;}
+            #c_n, #c2_n{left:20px;right:20px;top:0;height:20px;}
+            #c_ne, #c2_ne{right:0;top:0;height:20px;width:20px;}
+            #c_e, #c2_e{right:0;top:20px;bottom:20px;width:20px;}
+            #c_se, #c2_se{right:0;bottom:0;width:20px;height:20px;}
+            #c_s, #c2_s{left:20px;right:20px;bottom:0;height:20px;}
+            #c_sw, #c2_sw{left:0;bottom:0;width:20px;height:20px;}
+            #c_w, #c2_w{left:0;bottom:20px;top:20px;width:20px;}
+            #c_nw, #c2_nw{left:0;top:0;width:20px;height:20px;}
+            #c_content, #c2_content{position:absolute;top:50px;left:20px;right:20px;bottom:20px;text-align:center;padding:50px 0;}
+            .floatright{float:right;background:gray;margin:2px;padding:2px;cursor:default;}
+            #output, #output div{position:relative;}
+        </style>
+    </head>
+    <body>
+        <h1>mdraggable test</h1>
+        <div id="a">
+            <div id="b">move<span class="floatright draggable_exclude">Excluded</span></div>
+            <div id="c_n">n</div>
+            <div id="c_ne">ne</div>
+            <div id="c_e">e</div>
+            <div id="c_se">se</div>
+            <div id="c_s">s</div>
+            <div id="c_sw">sw</div>
+            <div id="c_w">w</div>
+            <div id="c_nw">nw</div>
+            <div id="c_content">MDraggable attached top left, boundary limits</div>
+        </div>
+        <div id="a2">
+            <div id="b2">move<span class="floatright draggable_exclude">Excluded</span></div>
+            <div id="c2_n">n</div>
+            <div id="c2_ne">ne</div>
+            <div id="c2_e">e</div>
+            <div id="c2_se">se</div>
+            <div id="c2_s">s</div>
+            <div id="c2_sw">sw</div>
+            <div id="c2_w">w</div>
+            <div id="c2_nw">nw</div>
+            <div id="c2_content">MDraggable attached bottom right, size limits.</div>
+        </div>
+        <div id="output"></div>
+    </body>
+</html>

@@ -1,0 +1,124 @@
+#help_container #help_address_container
+{
+    position: absolute;                
+    left: 15px;
+    right: 15px;
+    top: 16px;
+    height: 35px;
+    font-family: verdana;
+    font-size: 16px;
+    letter-spacing: -1px;
+    color: #000;
+    text-shadow: 1px 1px 1px #E7E7E7;
+}
+    #help_container #help_address_container .help_addr_seperator
+    {
+        cursor:default;
+    }
+    #help_container #help_address_container .help_addr_item
+    {
+        cursor:pointer;
+        background: #FFF;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #DDD;
+        border-radius: 4px;
+        padding: 5px;
+    }
+    #help_container #help_address_container .help_addr_item:hover
+    {
+        border-color: #747474;
+    }
+    #help_container #help_address_container .help_addr_item:active
+    {
+        box-shadow: inset 1px 1px 7px #DFDFDF;
+    }
+#help_container #help_body_container
+{
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 50px;
+    bottom: 25px;
+    overflow: auto;
+    background: #FFF;
+    padding: 5px;
+    border: 1px solid #DDD;
+    font-family: verdana;
+    font-size: 13px;
+}
+    #help_container .link
+    {
+        text-decoration: underline;
+        cursor:pointer;
+    }
+    #help_container h1
+    {
+        margin: 0 0 10px 0;
+        font-size: 25px;
+    }
+    #help_container h2
+    {
+        margin: 0 0 5px 0;
+        font-family: arial;
+        font-size: 15px;
+    }
+    #help_container h3
+    {
+        display: inline;
+        font-size: 12px;
+    }
+    #help_container p
+    {
+        margin: 0 0 10px 0;
+    }
+    #help_container ul
+    {
+        margin: 0 0 5px 0;
+    }
+    #help_container .box_cell
+    {
+        position:relative;
+        border: 1px solid #B3B3B3;
+        padding: 5px 6px 6px 8px;
+        border-radius: 3px;
+        font-family: arial;
+        margin: 30px 5px 0px 5px;
+        font-size:14px;
+    }
+    #help_container .box_town
+    {
+        border-color:#0051CA;
+    }
+        #help_container .box_town .box_cell_head
+        {
+            color:#0051CA;
+        }
+    #help_container .box_mafia
+    {
+        border-color:#AD0000;
+    }
+        #help_container .box_mafia .box_cell_head
+        {
+            color: #AD0000;
+        }
+    #help_container .box_neutral
+    {
+        border-color:purple;
+    }
+        #help_container .box_neutral .box_cell_head
+        {
+            color:purple;
+        }
+        #help_container .box_cell_head
+        {
+            position: absolute;
+            top: -15px;
+            color: #000;
+            z-index: 99999;
+            font-size: 14px;
+        }
+    #help_container .box_cell .role_item
+    {
+        display: inline-block;
+    }

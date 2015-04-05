@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PlayMafia</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<!--Stylesheets-->
+			<link href="/libs/jq.minputs/jq.minputs.style.css" rel="stylesheet" type="text/css" />
+			<link href="/css/animate.min.css" rel="stylesheet" type="text/css" />
+			<link href="/css/mafia_images.css" rel="stylesheet" type="text/css" />
+			<link href="/css/welcome.css" rel="stylesheet" type="text/css" />
+		<!--/Stylesheets-->
+		<!--Scripts-->
+			<script src="/socket.io/socket.io.js"></script>
+			<script src="/libs/jquery/jquery-1.7.1.min.js" type="text/javascript"></script>
+			<script src="/libs/jqlibs/jqlibs.js" type="text/javascript"></script>
+			<script src="/libs/jq.minputs/jq.minputs.script.js" type="text/javascript"></script>
+			<script src="/handler.layer.menu.js" type="text/javascript"></script>
+			<script src="/handler.layer.game.js" type="text/javascript"></script>
+			<script src="/handler.js" type="text/javascript"></script>
+		<!--/Scripts-->
+	</head>
+	<body>
+		<div id="mafia_container">
+			<div id="welcome_container">
+				<div class="center_title">
+					<div class="main_title">&nbsp;</div>
+				</div>
+				<div class="welcome_center">
+					<div class="welcome_panel animated">
+						<div class="upper">
+							<span class="emphasis">Welcome to Playmafia</span>, home of a mafia game inspired by the starcraft II Mafia Mod. 
+							Register or Login to begin, PlayMafia is currently in closed beta, here is the <a href="mailto:contact.playmafia@gmail.com" target="_blank">contact email</a>. 
+							PlayMafia has been designed for modern browsers and is not currently supported by all browsers, 
+							Please ensure you are using the latest version of either 
+							<a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank" class="ff">Firefox</a> or 
+							<a class="ch" href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a>.
+						</div>
+						<div class="lower">
+							<div class="left">
+								<div class="title">Register</div>
+								<form id="form_login_register">
+									<input type="text" placeholder="Username" name="register_username" class="mafinput" /><br />
+									<input type="text" placeholder="Beta Key" name="register_key" class="mafinput" /><br />
+									<input type="password" placeholder="Password" name="register_password" class="mafinput" /><br />
+									<input type="password" placeholder="Repeat" name="register_password2" class="mafinput" /><br />
+									<input type="submit" value="Register" class="mafbutton" />
+								</form>
+							</div>
+							<div class="right">
+								<div class="title">Login</div>
+								<form id="form_login_login">
+									<input type="text" placeholder="Username" name="login_username" class="mafinput" /><br />
+									<input type="password" placeholder="Password" name="login_password" class="mafinput" /><br />
+									<input type="submit" value="Login" class="mafbutton" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="main_overlay"></div>
+			<div id="menu_container" class="panel hidden"></div>
+			<div id="game_container" class="panel hidden"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,363 @@
+{
+	"phasenames":[
+		"Actions Phase",
+		"Resolve Actions Phase",
+		"Discussion Phase",
+		"Trial Phase",
+		"Defence Phase",
+		"Lynch Phase",
+		"Lynch Resolve Phase",
+		"Reflection Phase"
+	],
+	"servermessages":{	
+		"slept_soundly":				"Everyone slept soundly through the night...",
+		"slept_unsoundly1":				"There was a murder in the night!",
+		"slept_unsoundly3":				"There were murders in the night, not all the town survived!",
+		"slept_unsoundly4+":			"Loud screams could be heard throughout the night!",
+		
+		"life_murder_single":			"{p:#} has been murdered!",
+		"life_murder_single_chat":		"{p:#} was murdered in the night!",
+		"life_murder_multiple":			"[{p:#}] have been been murdered!",
+		"life_murder_multiple_chat":	"Players [{p:#}] were murdered in the night!",
+		
+		"player_trial":					"{p:#} has been elected for trial, and will now present their defence.",
+		"player_trial2":				"{p:#} was put on trial.",
+		"guilty_vote":					"The Town has voted <span style=\"color:red;\"># vote(_s) guilty</span> and <span style=\"color:green;\"># vote(_s) innocent</span>.",
+		"found_guilty":					"{p:#} has been found guilty and will be lynched.",
+		"found_guilty2":				"{p:#} was found guilty and lynched.",
+		"found_innocent":				"{p:#} has been found innocent and will be spared.",
+		"found_innocent2":				"{p:#} was found innocent.",
+        
+        "mayor_reveal_chat":            "{p:#} revealed his identity ({r:#})",
+        
+        "inprisonment_target_chat":             "You have been imprisoned and will be kept in a private cell during the night.",
+        "inprisonment_source_chat":             "You have successfully imprisoned {p:#}.",
+        "inprisonment_source_chat_failed":      "Your attempt to imprison {p:#} failed, they may have been imprisoned by someone else or maybe you were imprisoned first.",
+        
+        "votes_required":               "# vote(_s) by majority required to elect a player for trial.",
+		
+		"interrogate_suspect_chat":		"{p:#} apon interrogation seemed suspicious.",
+		"interrogate_legit_chat":		"{p:#} apon interrogation seemed legitimate.",
+        
+        "investigate_leader_chat":              "{p:#} apon investigation appeared to be a leader and is likely a {r:4}, {r:16} or {r:6}.",
+        "investigate_leader_target_chat":       "An investigator has stumbled across your notes and found you to be a leader (one of {r:4}, {r:16} or {r:6}).",        
+        "investigate_untrusting_chat":          "{p:#} apon investigation appear to be untrusting of others and is likely a {r:0}, {r:11} or {r:14}.",
+        "investigate_untrusting_target_chat":   "An investigator has stumbled across into your work shed (one of {r:0}, {r:11} or {r:14}).",
+        "investigate_knives_chat":              "{p:#} apon investigation appear to own a collection of knives and is likely a {r:1}, {r:3} or {r:8}.",
+        "investigate_knives_target_chat":       "An investigator has stumbled across your knife collection (one of {r:1}, {r:3} or {r:8}).",
+        "investigate_knowledge_chat":           "{p:#} apon investigation appear to have a particular interest in other people and is likely a {r:2}, {r:12}, {r:17} or {r:5}.",
+        "investigate_knowledge_target_chat":    "An investigator has noticed you comming home late (one of {r:2}, {r:12}, {r:17} or {r:5}).",
+        "investigate_busy_chat":                "{p:#} apon investigation appears to be smiling in the morning and is likely a {r:7}, {r:10} or {r:9}.",
+        "investigate_busy_target_chat":         "An investigator has noticed your smile in the morning (one of {r:7}, {r:10} or {r:9}).",
+		"investigate_knowledge_chat":           "{p:#} apon investigation appears to keep to himself and doesn't reveal much, likely a {r:13}, {r:15} or {r:18}.",
+        "investigate_knowledge_target_chat":    "An investigator has noticed you keep to yourself (one of {r:13}, {r:15} or {r:18}).",
+		
+		"player_silenced_chat":			"You have been silenced and cannot chat until the day is over.",	
+		
+		"player_blocked1_chat":			"Your night action has been blocked by an escort.",
+		"player_blocked2_chat":			"Your night action has been blocked by a consort."		
+	},
+	"victorymessage_main":{
+		"none":"The <span style=\"color:#6A87FA;\">Town</span> and <span style=\"color:#EB3232;\">Mafia</span> both lose!",
+		"town":"The <span style=\"color:#6A87FA;\">Town</span> have won!",
+		"mafia":"The <span style=\"color:#EB3232;\">Mafia</span> have won!"
+	},
+	"victorymessage_sub":{
+		"sub_0":"",
+		"sub_1":"The {0} has completed their objective.",
+		"sub_+":"The {0} and {1} have completed their objectives."
+	},
+	"anonymous_names":{
+		"0":"Jailor",
+		"1":"Prisoner",
+		"2":"Mafia"
+	},
+	"groups":{
+		"-99":{
+			"displayname":"addplayer",
+			"color":"black",
+			"description":"Select a player to Whisper to."
+		},
+		"-2":{
+			"displayname":"graveyard",
+			"color":"black",
+			"description":"Graveyard: Talk with other dead people."
+		},
+		"-1":{
+			"displayname":"public",
+			"color":"black",
+			"description":"Chat: The town center public chatter."
+		},
+		"0":{
+			"displayname":"mafia",
+			"color":"red",
+			"description":"Group: A secret conversation heard by few."
+		},
+        "1":{
+			"displayname":"jail",
+			"color":"blue",
+			"description":"Group: A conversation heard only in the jail."
+        }
+	},
+    "rolecategories":{
+        "0":{
+            "name":"Town",
+            "title":"Town aligned roles",
+            "description":"Town roles go into the game without prior knowledge of each others identities, they must use their numbers to their advantage in finding out who the mafia are and hang them at the gallows during the day.",
+            "color":"#0051CA"
+        },
+        "1":{
+            "name":"Mafia",
+            "title":"Mafia aligned roles",
+            "description":"Mafia roles are aligned with the Mafia Syndicate and have the sole objective of wiping out the town and claiming control. Mafia roles can communicate at night and usually are informed of each others identities from the beginning.",
+            "color":"#AD0000"
+        },
+        "2":{
+            "name":"Neutral",
+            "title":"Neutral Roles",
+            "description":"Neutral roles have objectives unique to the role, and can sometimes benefit from siding with the town or the mafia.",
+            "color":"purple"
+        }
+    },
+	"roles":{
+		"0":{
+            "displayid":"citizen",
+			"displayname":"Citizen",
+            "color":"#008080",
+			"description":"As a citizen, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also protect yourself for one night.",
+            "hints":["Its a hint!"]
+		},
+		"1":{
+            "displayid":"doctor",
+			"displayname":"Doctor",
+            "color":"#0000ff",
+			"description":"As a Doctor, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also protect a single player each night."
+		},
+		"2":{
+            "displayid":"sheriff",
+			"displayname":"Sheriff",
+            "color":"#008000",
+			"description":"As a Sheriff, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also interrogate a players allegiance each night."
+		},
+		"3":{
+            "displayid":"mafioso",
+			"displayname":"Mafioso",
+            "color":"#ff0000",
+			"description":"As a Mafioso, you must eliminate all townfolk while keeping the mafia identities hidden. You may secretly talk at night with other mafia."
+		},
+		"4":{
+            "displayid":"godfather",
+			"displayname":"GodFather",
+            "color":"#ffa500",
+			"description":"As the GodFather, you must eliminate all townfolk while keeping the mafia identities hidden. You may order a hit on a player once per night."
+		},
+		"5":{
+            "displayid":"blackmailer",
+			"displayname":"BlackMailer",
+            "color":"#480000",
+			"description":"As a Blackmailer, you must eliminate all townfolk while keeping the mafia identities hidden, You may also silence one player per night."
+		},
+		"6":{
+            "displayid":"vigilante",
+			"displayname":"Vigilante",
+            "color":"#000066",
+			"description":"As a Vigilante, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also kill an individual at night."
+		},
+		"7":{
+            "displayid":"escort",
+			"displayname":"Escort",
+            "color":"#660066",
+			"description":"As an Escort, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also role-block a player each night."
+		},
+		"8":{
+            "displayid":"serialkiller",
+			"displayname":"Serial Killer",
+            "color":"#800080",
+			"description":"As a Serial Killer, you win by killing all town and mafia, do this by evenly killing town and mafia until the end. You may target kill an individual each night."
+		},
+		"9":{
+            "displayid":"jester",
+			"displayname":"Jester",
+            "color":"#FF90A3",
+			"description":"As a Jester, you must use deceit to get yourself lynched during the day (not killed at night)."
+		},
+		"10":{
+            "displayid":"consort",
+			"displayname":"Consort",
+            "color":"#df5050",
+			"description":"As a Consort working with the mafia, you must eliminate all townfolk while keeping the mafia identities hidden. You may also role-block a player each night."
+		},
+		"11":{
+            "displayid":"bodygaurd",
+			"displayname":"Bodygaurd",
+            "color":"#2d8642",
+			"description":"As a Bodyguard, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also guard an individual at night, if this person is attacked both you and the attacker will die."
+		},
+		"12":{
+            "displayid":"investigator",
+			"displayname":"Investigator",
+            "color":"#589b16",
+			"description":"As an Investigator, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also shadow a player at night learning clues relating to their character."
+		},
+		"13":{
+            "displayid":"consigliere",
+			"displayname":"Consigliere",
+            "color":"#c63574",
+			"description":"As a Consigliere working with the mafia, you must eliminate all townfolk while keeping the mafia identities hidden. You may also learn clues about players identities."
+		},
+		"14":{
+            "displayid":"framer",
+			"displayname":"Framer",
+            "color":"#b48000",
+			"description":"As a Framer working with the mafia, you must eliminate all townfolk while keeping the mafia identities hidden. You may also frame a player at night confusing investigator and sheriff investigations."
+		},
+		"15":{
+            "displayid":"survivor",
+			"displayname":"Survivor",
+            "color":"#d6d600",
+			"description":"As a Survivor, you must survive until the end of the game regardless of who completes their goals."
+		},
+		"16":{
+            "displayid":"mayor",
+			"displayname":"Mayor",
+            "color":"#4a86e8",
+			"description":"As a Mayor, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also choose to reveal your identity in the discussion phase to give yourself an extra vote during the trial phase."
+		},
+		"17":{
+            "displayid":"jailor",
+			"displayname":"Jailor",
+            "color":"#76a5af",
+			"description":"As a Jailor, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also choose to jail a player during the reflection phase, which will succeed if noone is lynched that day.  They may only talk to you at night and you may choose to execute them."
+		},
+		"18":{
+            "displayid":"busdriver",
+			"displayname":"Bus Driver",
+            "color":"#6fa8dc",
+			"description":"As a Bus Driver, you must work out who the other townfolk are and together eliminate the remaining mafia. You may also swap two players at night, redirecting all actions aimed to each other."
+		}
+	},
+	"randomroles":{
+		"0":{
+            "displayid":"randomtown",
+            "displayname":"Random Town",
+            "color":"blue"
+        },
+		"1":{
+            "displayid":"randommafia",
+            "displayname":"Random Mafia",
+            "color":"red"
+        },
+		"2":{
+            "displayid":"randomneutral",
+            "displayname":"Random Neutral",
+            "color":"purple"
+        },
+		"3":{
+            "displayid":"randomtowncore",
+            "displayname":"Random Town Core",
+            "color":"blue"
+        },
+		"4":{
+            "displayid":"randomtowninvestigative",
+            "displayname":"Random Town Investigative",
+            "color":"blue"
+        },
+		"5":{
+            "displayid":"randomtownpower",
+            "displayname":"Random Town Power",
+            "color":"blue"
+        },
+		"6":{
+            "displayid":"randommafiacore",
+            "displayname":"Random Mafia Core",
+            "color":"red"
+        }
+    },
+	"roleactions":{
+		"0":{
+			"displayname":"Protect",
+			"description":"Wear Armour to protect yourself at night."
+		},
+		"1":{
+			"displayname":"Heal",
+			"description":"Watch over a player during the night, preventing a single attack."
+		},
+		"2":{
+			"displayname":"Interrogate",
+			"description":"Interrogate a player during the night."
+		},
+		"3":{
+			"displayname":"Eliminate",
+			"description":"Order a hit on a player. This player will be taken out."
+		},
+		"4":{
+			"displayname":"Silence",
+			"description":"Blackmail a player, preventing them from speaking during the day."
+		},
+		"5":{
+			"displayname":"Martial Law",
+			"description":"Take the law into your own hands anytime past the third day, kill a player."
+		},
+		"6":{
+			"displayname":"Distract",
+			"description":"Distract a player for the night, blocking all of their actions."
+		},
+		"7":{
+			"displayname":"Murder",
+			"description":"Anytime past the second day, murder an unsuspecting player."
+		},
+		"8":{
+			"displayname":"Entertain",
+			"description":"Entertain a player for the night, blocking all of their night actions."
+		},
+		"9":{
+			"displayname":"Gaurd",
+			"description":"Guard a player, if they are attacked the attacker and guard will die but the player being guarded will live."
+		},
+		"10":{
+			"displayname":"Shadow",
+			"description":"Follow a player in the night, learning clues about their character."
+		},
+		"11":{
+			"displayname":"Research",
+			"description":"Research a player during the night, learning clues about their character."
+		},
+		"12":{
+			"displayname":"Frame",
+			"description":"Frame a player, making them look more suspicious upon investigation."
+		},
+		"13":{
+			"displayname":"Reveal",
+			"description":"Reveal your identity as mayor to all player in the game, gain an extra vote in the trial phase."
+		},
+		"14":{
+			"displayname":"Inprison",
+			"description":"Imprison a player during the night, they are unable to talk to anyone else except you."
+		},
+		"15":{
+			"displayname":"Execute",
+			"description":"Execute a player previously imprisoned."
+		},
+		"16":{
+			"displayname":"Drive",
+			"description":"Swap two targets, actions against these two targets will be directed to each other."
+		}
+	},
+    "goalobjectives":{
+        "0":[
+            "Elminate all remaining mafia while keeping the town alive."
+        ],
+        "1":[
+            "Eliminate all remaining town while keeping the mafia alive."
+        ],
+        "2":[
+            "Kill all mafia and town while staying alive yourself."
+        ],
+        "3":[
+            "Get lynched in the day by the town."
+        ],
+        "4":[
+            "Survive until the end of the game."
+        ]
+    }
+}

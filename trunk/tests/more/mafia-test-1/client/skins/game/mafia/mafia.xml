@@ -1,0 +1,176 @@
+<div id="game_mafia">
+	<div class="background_panel">
+		<div class="center_box_x center_box_y">
+			<div class="background_container">
+				<div id="background_day">&nbsp;</div>
+				<div id="background_night">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel" page="pre">
+		<div id="pre_joined_box" class="animated">
+			<div id="pre_joined_box_inner">_</div>
+		</div>
+		<div class="center_box_x">
+			<div class="center_box_y">
+				<div id="pre_box" class="animated">
+					<div class="upper">
+						<div id="pre_title">Pregame starts in</div>
+						<div id="pre_countdown">_</div>
+					</div>
+					<div class="lower">
+						<form id="form_pre_namechoice">
+							<div class="left">
+								<input type="text" id="input_pre_name" class="mafinput" name="pre_name" />
+							</div>
+							<div class="right">
+								<input type="submit" value="Select Name" class="mafbutton" id="button_pre_submit" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel" page="game">
+		<div id="game_box">
+			<div id="game_size_handle">
+				<div id="game_drag_block"></div>
+			</div>
+			<div id="game_leftcol" class="animated">
+				<div id="game_left_topbox">
+					<div id="game_graveyard" class="standardgamebox">
+						<div id="game_graveyard_title" class="title_text">
+							Graveyard
+						</div>
+						<div id="game_graveyard_content"></div>
+					</div>
+				</div>
+				<div id="game_left_bottombox">
+					<div id="game_playerlist" class="standardgamebox">
+						<div id="game_playerlist_title" class="title_text"></div>
+						<div id="game_playerlist_description"></div>
+						<div id="game_playerlist_content"></div>
+					</div>
+					<div id="game_players_x_handle"></div>
+					<div id="game_players_drag_outline"></div>
+				</div>
+			</div>
+			<div id="game_midcol">
+				<div id="game_mid_top">
+					<div id="game_mid_headbox">
+						<div id="game_timeleft" class="standardgamebox animated title_text">
+							4.0s
+						</div>								
+					</div>
+				</div>
+				<div id="game_mid_mid">
+					<div id="game_mid_bottombox_midattach">
+						<div id="game_lynch">
+							<span id="game_lynch_name">Do you find this person Guilty?</span><br /><br />
+							<div id="game_lynch_options"></div>
+						</div>
+						<div id="game_display_message" class="animated"></div>
+					</div>
+				</div>
+			</div>
+			<div id="game_rightcol" class="animated">
+				<div id="game_right_top">
+					<div id="game_right_headbox">
+						<div id="game_phase" class="standardgamebox animated">
+							<div id="game_phase_content" class="title_text">_</div>
+						</div>
+						<div id="game_day" class="standardgamebox animated">
+							<div id="game_day_content" class="title_text">_</div>
+						</div>
+					</div>
+				</div>
+				<div id="game_right_bottom">
+					<div id="game_right_topbox">
+						<div id="game_roleinfo" class="standardgamebox">
+							<div id="game_roleinfo_frame">
+								<div id="game_roleinfo_image"></div>
+								<div id="game_roleinfo_title">_</div>
+							</div>
+							<div id="game_roleinfo_description">_</div>
+						</div>
+					</div>
+					<div id="game_right_bottombox">
+						<div id="game_chat_destinations">
+							<div id="game_chat_left"></div>
+							<div id="game_chat_center"></div>
+							<div id="game_chat_right"></div>
+						</div>
+						<div id="game_chat" class="standardgamebox">
+							<div id="game_chat_title_container">
+								<div id="game_chat_title">Whisper: Jezternz</div>
+								<div id="game_chat_close">
+									<input type="button" value="X" id="button_game_close_chat" />
+								</div>
+							</div>
+							<div id="game_chat_container"></div>
+							<div id="game_chat_submit">
+								<form id="form_game_chat">
+									<div id="game_chat_input_container">
+										<input type="text" id="input_game_chatmessage" class="mafinput" name="game_chatmessage" />
+									</div>
+									<div id="game_chat_button_container">
+										<input type="submit" value="Send" class="mafbutton" id="button_game_chatsend" />
+									</div>
+								</form>
+							</div>
+						</div>
+						<div id="game_chat_x_handle"></div>
+						<div id="game_chat_drag_outline"></div>
+					</div>
+				</div>				
+			</div>
+			<div id="game_death_container">
+				<div class="center_box_x center_box_y">
+					<div id="game_death_box" class="animated standardgamebox">
+						<div class="text"></div>
+						<div class="image"></div>
+					</div>
+				</div>
+			</div>
+			<div id="game_rolechange_container">
+				<div class="center_box_x center_box_y">
+					<div id="game_rolechange_box" class="animated standardgamebox">
+						<div class="text"></div>
+						<div class="image"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel" page="post">
+		<div class="center_box_x center_box_y">
+			<div id="post_box_container">
+				<div id="post_box_top" class="animated">
+					<div id="post_victory" class="animated hidden">Victory Message</div>
+					<div id="post_sub_victory" class="animated hidden">Sub Victory Message</div>
+					<div id="post_names_victory" class="animated hidden">Names</div>
+					<div id="post_scoreboard">_</div>
+				</div>
+				<div id="post_box_bottom" class="animated">
+					<div class="upper">
+						<div id="post_chat_content"></div>
+					</div>
+					<div class="lower">
+						<form id="form_post_chat">
+							<div class="left">
+								<input type="text" id="input_post_chatmessage" class="mafinput" name="post_chatmessage" />
+							</div>
+							<div class="right">
+								<input type="submit" value="Send" id="button_post_chatsend" class="mafbutton" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="post_leavegame_container">
+			<input type="button" id="button_post_menureturn" class="mafbutton" value="Leave PostGame" />
+		</div>
+	</div>
+</div>

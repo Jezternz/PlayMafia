@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+        <script type="text/javascript" src="howler.min.js"></script>
+        <script type="text/javascript">
+            var sounds={};
+            var loopSounds={};
+            var timeouts = [];
+            var soundsetup = [
+                {'id':'crickets','volume':0.3},
+                {'id':'rooster','volume':0.4},
+                {'id':'rain','volume':0.8},
+                {'id':'thunder','volume':1},
+                {'id':'chat','volume':0.3}            
+            ];
+            function setup()
+            {
+                sounds['sprite'] = new Howl({
+                    'urls': ['sounds/sound_combined.mp3', 'sounds/sound_combined.ogg'],
+                    'autoplay': false,
+                    'buffer': true,
+                    'sprite': {
+                        'crickets': [0, 13000],
+                        'rooster': [13500, 16250],
+                        'rain': [16500, 76000],
+                        'thunder' : [77500, 90000]
+                    }
+                });
+                soundsetup.forEach(function(ssetup){
+                    var obj = {
+                        'urls': ['sounds/sound_'+ssetup.id+'.mp3', 'sounds/sound_'+ssetup.id+'.ogg'],
+                        'autoplay': false,
+                        'loop': false,
+                        'volume': ssetup.volume
+                    };
+                    sounds[ssetup.id] = new Howl(obj);
+                    sounds[ssetup.id].volume_max = ssetup.volume;
+                    $('tr:first-child').append('<td>'+ssetup.id+'</td>');
+                    $('tr:last-child').append(
+                        '<td>'+
+                            '<input id="sound" value="'+ssetup.id+'_start" type="button" /><br />'+
+                            '<input id="sound" value="'+ssetup.id+'_stop" type="button" /><br />'+
+                            '<input id="sound" value="'+ssetup.id+'_pause" type="button" /><br />'+
+                            '<input id="sound" value="'+ssetup.id+'_loop" type="button" /><br />'+
+                            '<input id="sound" value="'+ssetup.id+'_fadein" type="button" /><br />'+
+                            '<input id="sound" value="'+ssetup.id+'_fadeout" type="button" /><br />'+
+                        '</td>'
+                    );
+                });
+                $('body').delegate('input', 'click', function(e){
+                    var id = "fn_"+$(e.target).attr('id');
+                    if(typeof window[id] == "function")
+                    {
+                        window[id].apply(e.target, e);
+                    }
+                });
+            }
+            function fn_sprite(e)
+            {
+                var val = $(this).val();
+                if(val == "stop")sounds['sprite'].stop();
+                else sounds['sprite'].play(val);
+            }
+            function fn_sound(e)
+            {
+                var 
+                    val = $(this).val().split('_'),
+                    sound = val[0],
+                    action = val[1];
+                switch(action)
+                {
+                    case 'start':
+                        sounds[sound].play();
+                    break;
+                    case 'stop':
+                        sounds[sound].stop();
+                    break;
+                    case 'pause':
+                        sounds[sound].pause();
+                    break;
+                    case 'loop':
+                        loopSounds[sound] = !loopSounds[sound];
+                        sounds[sound].loop(loopSounds[sound]);
+                    break;
+                    case 'fadein':
+                        sounds[sound].play();
+                        sounds[sound].fade(0, sounds[sound].volume_max, 1000);
+                    break;
+                    case 'fadeout':
+                        sounds[sound].fade(sounds[sound].volume_max, 0, 2000, function(){
+                            sounds[sound].stop();
+                        });
+                    break;
+                }
+            }
+            function at(time, fn)
+            {
+                timeouts.push(setTimeout(fn, time));
+            }
+            function iteration()
+            {
+                clearTimeouts();
+                at(500, function(){
+                    sounds['crickets'].play().fade(0, sounds['crickets'].volume_max, 5000);
+                });
+                at(9000, function(){
+                    sounds['crickets'].fade(sounds['crickets'].volume_max, 0, 1000, function(){sounds['crickets'].stop();});
+                });
+                at(9200, function(){
+                    sounds['rooster'].play();
+                });
+                at(10000, function(){
+                    sounds['rain'].play().fade(0, sounds['rain'].volume_max, 3000);
+                });
+                at(14000, function(){
+                    sounds['thunder'].play();
+                });
+                at(25000, function(){
+                    sounds['rain'].fade(sounds['rain'].volume_max, 0, 3000, function(){sounds['rain'].stop();});
+                });
+                at(26000, iteration);
+            }
+            function fn_cycle(e)
+            {
+                fn_cyclestop();
+                sounds['crickets'].loop(true);
+                sounds['rain'].loop(true);
+                iteration();
+            }
+            function fn_cyclestop(e)
+            {
+                Object.keys(sounds).forEach(function(sound){
+                    sounds[sound].stop();
+                    sounds[sound].loop(false);      
+                });
+                clearTimeouts();
+            }
+            function clearTimeouts()
+            {
+                timeouts
+                    .filter(function(t){return !!t;})
+                    .forEach(function(t){clearTimeout(t);});
+                timeouts = [];
+            }
+            $(setup);
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>Sprites</td>
+                <td>Cycle</td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="sprite" value="crickets" type="button" /><br />
+                    <input id="sprite" value="rooster" type="button" /><br />
+                    <input id="sprite" value="rain" type="button" /><br />
+                    <input id="sprite" value="thunder" type="button" /><br />
+                    <input id="sprite" value="stop" type="button" /><br />
+                </td>
+                <td>
+                    <input id="cycle" value="cycle" type="button" /><br />
+                    <input id="cyclestop" value="cyclestop" type="button" /><br />
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

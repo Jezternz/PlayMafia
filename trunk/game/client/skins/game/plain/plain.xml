@@ -1,0 +1,165 @@
+<div id="game_plain">
+	<div class="panel" page="pre">
+		<div id="pre_joined_box">_</div>
+		<div id="pre_box" class="center_me">
+			<form id="form_pre_namechoice">
+				<span>Anonymous Player Name</span><br />
+				<input type="text" id="input_pre_name" name="pre_name" /><br />
+				<input type="submit" value="Submit" id="button_pre_submit" /><br />
+				<span id="pre_countdown">_</span>
+			</form>
+		</div>
+	</div>
+	<div class="panel" page="game">
+		<div id="game_box">
+			<div id="game_leftcol">
+				<div id="game_left_top">
+					<div id="game_menu">
+						<input type="button" value="Menu" id="button_game_menu" />
+					</div>
+				</div>
+				<div id="game_left_bottom">
+					<div id="game_left_topbox">
+						<div id="game_graveyard">
+							<div id="game_graveyard_title">
+								Graveyard
+							</div>
+							<div id="game_graveyard_content"></div>
+						</div>
+					</div>
+					<div id="game_left_bottombox">
+						<div id="game_playerlist">
+							<div id="game_playerlist_title"></div>
+							<div id="game_playerlist_description"></div>
+							<div id="game_playerlist_content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="game_midcol">
+				<div id="game_mid_top">
+					<div id="game_mid_headbox">
+						<div id="game_timeleft">
+							4.0s
+						</div>								
+					</div>
+				</div>
+				<div id="game_mid_bottom">
+					<div id="game_mid_bottombox">
+						<div id="game_lynch">
+							<span id="game_lynch_name">Do you find this person Guilty?</span><br /><br />
+							<div id="game_lynch_options">
+								<label for="game_lynch_innocent">Innocent</label>
+								<input type="checkbox" id="game_lynch_innocent" vote="-1" />
+								<label for="game_lynch_novote">No Vote</label>
+								<input type="checkbox" id="game_lynch_novote" vote="0" />
+								<label for="game_lynch_guilty">Guilty</label>
+								<input type="checkbox" id="game_lynch_guilty" vote="1" />
+							</div>
+						</div>
+						<div id="game_display_message"></div>
+					</div>
+				</div>
+			</div>
+			<div id="game_rightcol">
+				<div id="game_right_top">
+					<div id="game_right_headbox">
+						<div id="game_phase">
+							<div id="game_phase_content">
+								Discussion Phase
+							</div>
+						</div>
+						<div id="game_day">
+							<div id="game_day_content">
+								Day 9
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="game_right_bottom">
+					<div id="game_right_topbox">
+						<div id="game_roleinfo">
+							<div id="game_roleinfo_title">
+								Mafiaso
+							</div>
+							<div id="game_roleinfo_image">
+								&nbsp;
+							</div>
+							<div id="game_roleinfo_description">
+								The Mafiaso role sides with the Mafia team, with the objective of 
+								eliminating all of the town.
+							</div>
+						</div>
+					</div>
+					<div id="game_right_bottombox">
+						<div id="game_chat">
+							<div id="game_chat_title">
+								Chat
+							</div>
+							<div id="game_chat_audiance">
+								<select id="select_game_chat_receiver" name="game_chat_receiver">
+									<option>All Players</option>
+									<option>Whisper: X</option>
+									<option>Whisper: Y</option>
+									<option>Whisper: Z</option>
+								</select>
+							</div>
+							<div id="game_chat_container">
+							</div>
+							<div id="game_chat_submit">
+								<form id="form_game_chat">
+									<input type="text" id="input_game_chatmessage" name="game_chatmessage" />
+									<input type="submit" value="Send" id="button_game_chatsend" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div id="game_death_container">
+				<div id="game_death_overlay">&nbsp;</div>
+				<div id="game_death_box" class="center_me">
+					<div class="text"></div>
+					<div class="image"></div>
+				</div>
+			</div>
+			<div id="game_rolechange_container">
+				<div id="game_rolechange_overlay">&nbsp;</div>
+				<div id="game_rolechange_box" class="center_me">
+					<div class="text"></div>
+					<div class="image"></div>
+				</div>
+			</div>
+			<div id="game_events_block" tabindex="1">&nbsp;</div>
+		</div>
+	</div>
+	<div class="panel" page="post">
+		<div id="post_box" class="center_me">
+			<div id="post_top">
+				<div id="post_victory">Victory Message</div>
+				<div id="post_sub_victory">Names</div>
+			</div>
+			<div id="post_top_right"><input type="button" id="button_post_menureturn" value="Leave PostGame" /></div>
+			<div id="post_mid">
+				<div id="post_scoreboard">
+					<div class="post_scoreboard_player">Neo(X) was the Godfather</div>
+					<div class="post_scoreboard_player">Morpheus(Y) was a Mafioso</div>
+					<div class="post_scoreboard_player">Trinity(Z) was a Sheriff</div>
+				</div>
+			</div>
+			<div id="post_bottom">
+				<div id="post_chat_container">
+					<div id="post_chat_content">
+					 <span>Game over! The Mafia have won!</span>
+					</div>
+					<div id="post_chat_submit">
+						<form id="form_post_chat">
+							<input type="text" id="input_post_chatmessage" name="post_chatmessage" />
+							<input type="submit" value="Send" id="button_post_chatsend" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

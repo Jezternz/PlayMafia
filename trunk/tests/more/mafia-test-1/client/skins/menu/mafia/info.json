@@ -1,0 +1,11 @@
+{
+	"id":"mafia",
+	"name":"Mafia Skin",
+	"description":"",
+	"author":"Joshie",
+	"preview":"/skins/menu/mafia/preview.png",
+	"structure":"/skins/menu/mafia/mafia.xml",
+	"script":["/skins/menu/mafia/mafia.js"],
+	"style":["/skins/menu/mafia/mafia.css"],
+	"language":"/languages/{lang}/plain.lang.json"
+}

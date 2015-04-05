@@ -1,0 +1,591 @@
+/* Gameskin plain v0.1 */
+#game_plain{	
+	position:absolute;
+	top:0;right:0;bottom:0;left:0;
+	background:#eee;
+	font-family: arial;
+}
+#game_plain .panel {
+	position: absolute;
+	top: 0;right: 0;bottom: 35px;left: 0;
+	overflow: hidden;
+}
+#game_plain #pre_box{
+	width:180px;
+	height:130px;
+	border:1px solid gray;
+	text-align:center;
+}
+	#game_plain #pre_joined_box{
+		position:absolute;
+		left:0;
+		top:0;
+		width:200px;
+		height:400px;
+		overflow:hidden;
+	}
+#game_plain #game_box{
+	position:absolute;
+	top:0;right:0;bottom:0;left:0;
+}
+	#game_plain #game_leftcol{
+		position:absolute;
+		top:0;left:0;bottom:0;
+		width:320px;
+	}
+		#game_plain #game_left_top{
+			position:absolute;
+			top:0;left:0;right:0;
+			height:30px;
+		}
+			#game_plain #game_menu{
+				position:absolute;
+				top:2px;bottom:2px;left:3px;right:50px;
+				z-index:100;
+			}
+		#game_plain #game_left_bottom{
+			position:absolute;
+			top:30px;left:0;right:0;bottom:0;
+		}
+			#game_plain #game_left_topbox{
+				position:absolute;
+				top:0;left:0;right:0;
+				height:40%;
+			}
+				#game_plain #game_graveyard{
+					position:absolute;
+					top:0;right:5px;bottom:5px;left:5px;
+					background-color:white;
+					border:1px solid gray;
+					overflow:hidden;
+				}
+				#game_plain .deathui #game_graveyard{
+					background: #ddd;
+				}
+					#game_plain #game_graveyard_title{
+						position:absolute;
+						left:10px;top:10px;right:10px;
+						height:20px;
+						overflow:hidden;
+						font-size:13px;
+					}
+					#game_plain #game_graveyard_content{
+						position:absolute;
+						left:10px;top:35px;right:10px;bottom:10px;
+						overflow:auto;
+						font-size:11px;
+					}
+						#game_plain .game_graveyard_player{
+							position:relative;
+							width:100%;
+							height:18px;
+							float:left;
+						}
+						#game_plain .game_graveyard_player:nth-child(odd) {
+							background: #eee;
+						}
+							#game_plain .game_graveyard_player_name{
+								text-decoration:line-through;
+								position:relative;
+								float:left;
+								width:48%;
+								padding: 0 0 0 2%;
+							}
+							#game_plain .game_graveyard_player_role{
+								position:relative;
+								text-align:right;
+								float:left;
+								width:48%;
+								padding:0 2% 0 0;
+							}
+			#game_plain #game_left_bottombox{
+				position:absolute;
+				bottom:0;left:0;right:0;
+				height:60%;
+			}
+				#game_plain #game_playerlist{
+					position:absolute;
+					top:0;right:5px;bottom:5px;left:5px;
+					background-color:white;
+					border:1px solid gray;
+					overflow:hidden;
+				}
+				#game_plain .deathui #game_playerlist{
+					background: #ddd;
+				}
+					#game_plain #game_playerlist_title{
+						position:absolute;
+						left:10px;top:10px;right:10px;
+						height:20px;
+						overflow:hidden;
+						font-size:13px;
+					}
+						#game_plain #game_playerlist_title .small{
+							color:gray;font-size:10px;font-weight:bold;
+						}
+					#game_plain #game_playerlist_description{
+						position:absolute;
+						left:10px;top:40px;right:10px;
+						height:40px;
+						overflow:hidden;
+						font-size:11px;
+					}
+					#game_plain #game_playerlist_content{
+						position:absolute;
+						left:10px;top:90px;right:10px;bottom:10px;
+						overflow:auto;
+						border:1px solid #eee;
+						font-size:11px;
+					}
+						#game_plain .game_playerlist_player{
+							position:relative;
+							width:100%;
+							height:25px;
+							float:left;
+							overflow:hidden;
+						}
+						#game_plain .game_playerlist_player:nth-child(odd) {
+							background: #eee
+						}
+							#game_plain .game_playerlist_player_name{
+								position:absolute;
+								top:0;
+								left:0%;
+								width:30%;
+								padding-top:5px;
+							}
+							#game_plain .game_playerlist_player[alive="0"] .game_playerlist_player_name{
+								text-decoration:line-through;
+							}
+							#game_plain .game_playerlist_player_playerlabel{
+								position:absolute;
+								top:0;
+								left:30%;
+								width:35%;
+								padding-top:5px;
+							}
+							#game_plain .game_playerlist_player[alive="0"] .game_playerlist_player_playerlabel{
+								text-decoration:line-through;
+							}
+								#game_plain .game_playerlist_player_playerlabel .ally{
+									color:gray;
+								}		
+								#game_plain .game_playerlist_player_playerlabel .ally.me{
+									color:black;
+								}								
+								#game_plain #game_playerlist_content .highlight_role{
+									font-size:9px;
+								}
+							#game_plain .game_playerlist_player_button[buttonid="1"]{
+								position:absolute;
+								top:0;
+								left:65%;
+								width:10%;
+								padding-top:3px;
+							}
+							#game_plain .game_playerlist_player_button[buttonid="2"]{
+								position:absolute;
+								top:0;
+								left:75%;
+								width:10%;
+								padding-top:3px;
+							}
+							#game_plain .game_playerlist_player_actions{
+								position:absolute;
+								text-align:center;
+								top:0;
+								left:85%;
+								width:15%;
+								padding-top:5px;
+							}
+	#game_plain #game_midcol{
+		position:absolute;
+		top:0;left:320px;bottom:0;right:320px;		
+	}
+		#game_plain #game_mid_top{
+			position:absolute;
+			top:0;left:0;right:0;
+			height:30px;
+		}
+			#game_plain #game_timeleft{
+				position:relative;
+				background-color:white;
+				border:1px solid gray;
+				padding:10px;
+				width:100px;
+				margin:10px auto 0 auto;
+				text-align:center;
+				display:block;
+			}
+			#game_plain .deathui #game_timeleft{
+				background: #ddd;
+			}
+		#game_plain #game_mid_bottom{
+			position:absolute;
+			top:30px;left:0;right:0;bottom:0;
+		}
+			#game_plain #game_mid_bottombox{
+				position:absolute;
+				bottom:0;left:0;right:0;
+				height:60%;
+			}
+				#game_plain #game_lynch{
+					position:relative;
+					margin:0 auto;
+					text-align:center;
+					width:300px;
+					padding:20px 0;
+					background-color:white;
+					border:1px solid gray;
+				}
+				#game_plain #game_display_message{
+					position:relative;
+					margin:0 auto;
+					text-align:center;
+					width:auto;
+					padding:20px 0;
+					background-color:white;
+					border:1px solid gray;
+				}
+				#game_plain .deathui #game_display_message{
+					background: #ddd;
+				}
+	#game_plain #game_rightcol{
+		position:absolute;
+		top:0;right:0;bottom:0;
+		width:320px;
+	}
+		#game_plain #game_right_top{
+			position:absolute;
+			top:0;left:0;right:0;
+			height:30px;
+		}
+			#game_plain #game_right_headbox{
+				position:absolute;
+				top:0;right:0;bottom:0;left:0;
+			}
+				#game_plain #game_phase{
+					position:absolute;
+					top:5px;bottom:5px;left:5px;right:110px;
+					background-color:white;
+					border:1px solid gray;
+				}
+				#game_plain .deathui #game_phase{
+					background: #ddd;
+				}
+					#game_plain #game_phase_content{
+						text-align:center;
+						font-size:13px;
+					}
+				#game_plain #game_day{
+					position:absolute;
+					top:5px;bottom:5px;right:5px;
+					width:100px;
+					background-color:white;
+					border:1px solid gray;
+				}
+				#game_plain .deathui #game_day{
+					background: #ddd;
+				}
+					#game_plain #game_day_content{
+						text-align:center;
+						font-size:13px;
+					}
+		#game_plain #game_right_bottom{
+			position:absolute;
+			top:30px;left:0;right:0;bottom:0;
+		}
+			#game_plain #game_right_topbox{
+				position:absolute;
+				top:0;left:0;right:0;
+				height:40%;
+			}
+				#game_plain #game_roleinfo{
+					position:absolute;
+					top:0;right:5px;bottom:5px;left:5px;
+					background-color:white;
+					border:1px solid gray;
+					overflow:hidden;
+				}
+				#game_plain .deathui #game_roleinfo{
+					background: #ddd;
+				}
+					#game_plain #game_roleinfo_title{
+						position:absolute;
+						left:10px;top:10px;right:10px;
+						height:20px;
+						overflow:hidden;
+						font-size:13px;
+					}
+					#game_plain #game_roleinfo_image{
+						position:absolute;
+						left:10px;top:35px;right:10px;
+						height:150px;
+						border:1px solid gray;
+					}
+					#game_plain #game_roleinfo_description{
+						position:absolute;
+						left:10px;top:190px;right:10px;bottom:10px;
+						font-size:11px;
+					}
+			#game_plain #game_right_bottombox{
+				position:absolute;
+				bottom:0;left:0;right:0;
+				height:60%;
+			}
+				#game_plain #game_chat{
+					position:absolute;
+					top:0;right:5px;bottom:5px;left:5px;
+					background-color:white;
+					border:1px solid gray;
+					overflow:hidden;
+				}
+				#game_plain .deathui #game_chat{
+					background: #ddd;
+				}
+					#game_plain #game_chat_title{
+						position:absolute;
+						left:10px;top:10px;width:50px;
+						height:20px;
+						font-size:13px;
+					}
+					#game_plain #game_chat_audiance{
+						position:absolute;
+						left:65px;top:5px;right:5px;
+						height:20px;
+						font-size:13px;
+						text-align:right;
+					}
+						#game_plain #game_chat_audiance #select_game_chat_receiver.chatqueued{
+							background-color:#ffffcc;
+						}
+							#game_plain #game_chat_audiance .chatqueued{
+								background-color:#ffff88;
+							}
+					#game_plain #game_chat_container{
+						position:absolute;
+						top:35px;bottom:35px;left:10px;right:10px;
+						border: 1px solid #eee;
+					}
+						#game_plain .game_chat_container_channel{
+							position:absolute;
+							left:0;
+							top:0;
+							right:0;
+							bottom:0;
+							overflow:auto;
+							font-size:12px;
+						}
+					#game_plain #game_chat_submit{
+						position:absolute;
+						left:5px;
+						right:5px;
+						bottom:5px;
+						height:25px;
+					}
+						#game_plain #input_game_chatmessage{
+							width:230px;
+						}
+						#game_plain #button_game_chatsend{
+							float:right;
+						}
+			#game_plain #game_death_container{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+				#game_plain #game_death_overlay{
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					background-color: red;
+					opacity: 0.6;
+				}
+				#game_plain #game_death_box{
+					position: absolute;
+					width: 300px;
+					height: 300px;
+					background-color: white;
+					border: 1px solid gray;
+					text-align:center;
+					font-family: verdana;
+					font-size: 18px;
+				}
+					#game_plain #game_death_box .text{
+						padding:12px;
+					}
+					#game_plain #game_death_box .text span{
+						display: block;
+						font-size: 23px;
+						color: #d80000;
+					}
+					#game_plain #game_death_box .image{
+						position: absolute;
+						bottom: 0;
+						width: 240px;
+						height: 140px;
+						margin: 30px;
+						padding: 0px;
+						border: 1px solid #eee;
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+			#game_plain #game_rolechange_container{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+				#game_plain #game_rolechange_overlay{
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					background-color: gray;
+					opacity: 0.6;
+				}
+				#game_plain #game_rolechange_box{
+					position: absolute;
+					width: 300px;
+					height: 250px;
+					background-color: white;
+					border: 1px solid gray;
+					text-align:center;
+					font-family: verdana;
+					font-size: 18px;
+				}
+					#game_plain #game_rolechange_box .text{
+						padding:12px;
+					}
+					#game_plain #game_rolechange_box .text span{
+						display: block;
+						font-size: 23px;
+					}
+					#game_plain #game_rolechange_box .text span span{
+						display: inline;
+					}
+					#game_plain #game_rolechange_box .image{
+						position: absolute;
+						bottom: 0;
+						width: 240px;
+						height: 140px;
+						margin: 30px;
+						padding: 0px;
+						border: 1px solid #eee;
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+#game_plain #post_box{
+	width:500px;
+	height:400px;
+	border:1px solid gray;
+}
+	#game_plain #post_top_right{
+		position:absolute;
+		text-align:right;
+		top:5px;
+		right:5px;
+	}
+	#game_plain #post_top{
+		position:absolute;
+		top:10px;
+		left:10px;
+		right:10px;
+		height:80px;
+	}
+		#game_plain #post_victory{
+			text-align:center;
+			font-family:ariel;
+			font-size:32px;
+		}
+		#game_plain #post_sub_victory{
+			text-align:center;
+			font-size:13px;
+		}
+	#game_plain #post_mid{
+		position:absolute;
+		top:100px;
+		left:10px;
+		right:10px;
+		bottom:130px;
+	}
+		#game_plain #post_scoreboard{
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			overflow:auto;
+			
+		}
+			#game_plain .post_scoreboard_player{
+				position:relative;
+				margin:0;
+				width:49%;
+				float:left;
+				overflow:hidden;
+				text-align:left;
+				padding:0 0 0 1%;
+				font-size:12px;
+			}			
+			#game_plain .post_scoreboard_player:nth-child(odd) {
+				text-align:right;
+				padding:0 1% 0 0;
+			}
+	#game_plain #post_bottom{
+		position:absolute;
+		bottom:10px;
+		left:10px;
+		right:10px;
+		height:110px;
+	}
+		#game_plain #post_chat_container{
+			position:absolute;
+			left:0;
+			right:0;
+			bottom:0;
+			top:0;
+		}
+			#game_plain #post_chat_content{
+				position:absolute;
+				left:0;
+				right:0;
+				top:0;
+				height:70px;
+				overflow:auto;
+				border:1px dashed gray;
+				font-size:12px;
+			}
+			#game_plain #post_chat_submit{			
+				position:absolute;
+				left:0;
+				right:0;
+				bottom:0;
+				height:25px;
+			}
+			#game_plain #button_post_chatsend{
+				float:right;
+			}
+			#game_plain #input_post_chatmessage{
+				width:400px;
+			}
+#game_plain #game_events_block{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:101;
+	background:black;
+	opacity: 0.5;
+}
+#game_plain #game_events_block:focus{
+	border:none;
+	outline:none;
+}

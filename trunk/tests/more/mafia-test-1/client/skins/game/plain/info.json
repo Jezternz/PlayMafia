@@ -1,0 +1,11 @@
+{
+	"id":"plain",
+	"name":"Plain Skin",
+	"description":"",
+	"author":"Joshie",
+	"preview":"/skins/game/plain/preview.png",
+	"structure":"/skins/game/plain/plain.xml",
+	"script":["/skins/game/plain/plain.js"],
+	"style":["/skins/game/plain/plain.css"],
+	"language":"/languages/{lang}/plain.lang.json"
+}

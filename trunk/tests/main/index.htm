@@ -1,0 +1,141 @@
+<!HTML>
+<html>
+	<head>
+		<script src="/jquery-1.7.1.min.js" type="text/javascript"></script>
+		<script src="/socket.io/socket.io.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function(){
+				// Initial test
+			
+				var 
+					connectionLocation = document.location.protocol+'//'+document.location.host,
+					socket = io.connect(connectionLocation, {'force new connection': true}),
+					roomsockets = [
+						io.connect(connectionLocation, {'force new connection': true}),
+						io.connect(connectionLocation, {'force new connection': true}),
+						io.connect(connectionLocation, {'force new connection': true})
+					];
+				
+				var text = function(text){$('ul').first().append('<li>'+text+'</li>');}
+				
+				socket.on('test1', function(data){
+					text('Test 1 : '+data);
+					socket.emit('test2', 'Test 2 relayed from client');
+				});		
+				
+				socket.on('test2', function(data){
+					text('Test 2 : '+data);
+					socket.emit('test3');
+				});					
+				
+				socket.on('test3', function(data){
+					text('Test 3 : '+data);
+					socket.emit('test4');
+				});
+				
+				socket.on('test4', function(data){
+					text('Test 4 : '+data);
+				});		
+				
+				socket.on('connect', function () {text('Connected');});
+				socket.on('disconnect', function(){text('Disconnected');});	
+				socket.on('error', function(er){text('Error ('+er+')');});
+				
+				// Rooms testing
+				
+				$('.bottom').click(function(e){
+					if(!$(e.target).is('input[type="button"]'))return;
+					var 
+						socketid = parseInt($(e.target).closest('ul').attr('id').replace('s', ''))-1,
+						action = $(e.target).attr('class'),
+						roomStr = $(e.target).closest('ul').find('.room').val() || '',
+						messageStr = $(e.target).closest('ul').find('.message').val() || '';
+					switch(action){
+						case 'join':
+							roomsockets[socketid].emit('room_join', {room:roomStr});
+						break;
+						case 'leave':
+							roomsockets[socketid].emit('room_leave', {room:roomStr});
+						break;
+						case 'send':
+							roomsockets[socketid].emit('room_message', {room:roomStr,message:messageStr});
+						break;
+					}					
+				});
+				
+				var socktext = function(sock, text){$('#s'+sock+' li').last().prepend($('<div></div>').html(text));}
+				roomsockets.forEach(function(socket, i){
+					var ii = i+1;
+					socket.on('connect', function () {socktext(ii, 'Connected');});
+					socket.on('disconnect', function(){socktext(ii, 'Disconnected');});	
+					socket.on('error', function(er){socktext(ii, 'Error ('+er+')');});
+					socket.on('message', function(data){socktext(ii, data)});						
+				});				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<style type="text/css">
+			.top{
+				height:200px;
+				overflow:auto;
+			}
+			.bottom{
+				height:350px;
+				overflow:auto;
+			}
+			.bottom .col{
+				float:left;
+				width:33%;
+			}
+		</style>
+		<h1>Test Page</h2>
+		<div class="top">
+			<ul>
+			
+			</ul>
+		</div>
+		<div class="bottom">
+			<div class="col">
+				<ul id="s1">
+					<li><h2>Socket 1</h2></li>
+					<li>
+						<input class="room" placeholder="Join room"><input class="join" type="button" value="Join!" />
+						<input class="leave" type="button" value="Leave!" /><br />
+						<input class="message" placeholder="Message"><input class="send" type="button" value="Send!" />
+					</li>
+					<li>
+					
+					</li>
+				</ul>
+			</div>
+			<div class="col">
+				<ul id="s2">
+					<li><h2>Socket 2</h2></li>
+					<li>
+						<input class="room" placeholder="Join room"> <input class="join" type="button" value="Join!" />
+						<input class="leave" type="button" value="Leave!" /><br />
+						<input class="message" placeholder="Message"><input class="send" type="button" value="Send!" />
+					</li>
+					<li>
+					
+					</li>
+				</ul>
+			</div>
+			<div class="col">
+				<ul id="s3">
+					<li><h2>Socket 3</h2></li>
+					<li>
+						<input class="room" placeholder="Join room"> <input class="join" type="button" value="Join!" />
+						<input class="leave" type="button" value="Leave!" /><br />
+						<input class="message" placeholder="Message"><input class="send" type="button" value="Send!" />
+					</li>
+					<li>
+					
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PlayMafia</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<!--Stylesheets-->
+			<!--<link href="/css/mafglobal.css" rel="stylesheet" type="text/css" />-->
+			<style type="text/css">
+				.getvalues
+				{
+					border:1px dashed darkred;
+				}
+			</style>
+			<link href="jq.minputs.style.css" rel="stylesheet" type="text/css" />
+			<link href="animate.min.css" rel="stylesheet" type="text/css" />
+		<!--/Stylesheets-->
+		<!--Scripts-->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<script src="jq.minputs.script.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					setTimeout(function(){
+						var searchItems = [],l=97;
+						for(var i = l;i<=(l+26);i++){
+							for(var j = l;j<=(l+26);j++){
+								var str = String.fromCharCode(i)+String.fromCharCode(j)+Math.random().toFixed(3);
+								searchItems.push({'display':'Opt '+str,'value':str})
+							}
+						}
+						window.form1 = MControls.createForm({
+							'groups':[
+								{
+									'id':'group1',
+									'container':$('#target_container1'),
+									'inputs':[
+										{'type':'text','id':'a','display':'Text','value':'AA',
+											'warning':'AAAAA',
+											'onchange':function(val){
+												console.log('text changed to: ', val);
+											}
+										},
+										{'type':'password','id':'c','display':'Password','value':'BB',
+											'warning':'BBBBB',
+											'onchange':function(val){
+												console.log('password changed to: ', val);
+											}
+										},
+										{'type':'number','id':'b','display':'Number','value':'33',
+											'warning':'CCCCC',
+											'onchange':function(val){
+												console.log('number changed to: ', val);
+											}
+										},
+										{'type':'dropdown','id':'d','display':'Dropdown','value':'',
+											'warning':'nlah blah blah big long warning message here do this to fix',
+											'options':[
+												{'display':'Option 1','value':'a'},
+												{'display':'Option 2','value':'b'},
+												{'display':'Option 3','value':'c'},
+												{'display':'Option 4','value':''},
+												{'display':'Option 1','value':'e'},
+												{'display':'Option 2','value':'f'},
+												{'display':'Option 3','value':'g'},
+												{'display':'Option 4','value':'h'}
+											],
+											'onchange':function(val){
+												console.log('dropdown changed to: ', val);
+											}
+										},
+										{'type':'dropdown','id':'e','display':'Dropdown Search','value':searchItems[0],
+											'warning':'DDDDD',
+											'searchfn':function(search, callback){
+												search = search.toLowerCase();
+												var ar = searchItems.filter(function(v){return v.value.toLowerCase().indexOf(search) != -1 || v.display.toLowerCase().indexOf(search) != -1;}).slice(0,8);
+												callback.call({}, ar);
+											},
+											'onchange':function(val){
+												console.log('dropdownsearch changed to: ', val);
+											}
+										},
+										{'type':'list','id':'h','display':'List Creation','value':['f','g','h'],
+											'warning':'EEEEE',
+											'options':
+											[
+												{'display':'Option A','value':'a'},
+												{'display':'Option B','value':'b'},
+												{'display':'Option C','value':'c'},
+												{'display':'Option D','value':'d'},
+												{'display':'Option E','value':'e'},
+												{'display':'Option F','value':'f'},
+												{'display':'Option G','value':'g'},
+												{'display':'Option h','value':'h'}
+											],
+											'onchange':function(val){
+												console.log('list changed to: ', val);
+											}
+										},
+										{'type':'list','id':'g','display':'List Creation Search','value':[searchItems[2], searchItems[3], searchItems[4]],
+											'warning':'FFFFF',
+											'searchfn':function(search, callback){
+												search = search.toLowerCase();
+												var ar = searchItems.filter(function(v){return v.value.toLowerCase().indexOf(search) != -1 || v.display.toLowerCase().indexOf(search) != -1;}).slice(0,8);
+												callback.call({}, ar);
+											},
+											'onchange':function(val){
+												console.log('listsearch changed to: ', val);
+											}
+										},
+										{'type':'tree','id':'i','display':'Tree',
+											'value':{
+												'1':'a','2':'b','3':'c','4':'d','s1':'e','s2':'f','s3':'g','s4':'h','s21':'i','s22':'j','s23':'k','s121':'l','s122':'m','s123':'n','s124':'o'
+											},
+											'warning':'FFFFF',
+											'schema':[
+												{'id':'1','display':'Field 1'},
+												{'id':'2','display':'Field 2'},
+												{'id':'3','display':'Field 3'},
+												{'id':'4','display':'Field 4'},
+												{'display':'Group 1', 'fields':[
+													{'id':'s1','display':'Subfield 1'},
+													{'id':'s2','display':'Subfield 2'},
+													{'id':'s3','display':'Subfield 3'},
+													{'id':'s4','display':'Subfield 4'}
+												]},
+												{'display':'Group 2', 'fields':[
+													{'id':'s21','display':'Subfield 21'},
+													{'id':'s22','display':'Subfield 22'},
+													{'id':'s23','display':'Subfield 23'},
+													{'display':'SubGroup 1', 'fields':[
+														{'id':'s121','display':'Subfield 121'},
+														{'id':'s122','display':'Subfield 122'},
+														{'id':'s123','display':'Subfield 123'},
+														{'id':'s124','display':'Subfield 124'}
+													]}
+												]}
+											],
+											'onchange':function(val){
+												console.log('tree changed to: ', val);
+											}
+										}
+									]
+								},
+								{
+									'id':'group2',
+									'container':$('#target_container2'),
+									'inputs':[
+										{'type':'text','id':'aa','display':'Text','value':'abcABC123'},
+										{'type':'password','id':'cc','display':'Password','value':'abcABC123'},
+										{'type':'number','id':'bb','display':'Number','value':'123'},
+										{'type':'dropdown','id':'dd','display':'Dropdown','options':
+											[
+												{'display':'Option 1','value':''},
+												{'display':'Option 2','value':'b'},
+												{'display':'Option 3','value':'c'},
+												{'display':'Option 4','value':'d'},
+												{'display':'Option 1','value':'e'},
+												{'display':'Option 2','value':'f'},
+												{'display':'Option 3','value':'g'},
+												{'display':'Option 4','value':'h'}
+											]},
+										{'type':'dropdown','id':'ee','display':'Dropdown Search','value':searchItems[0],'searchfn':function(search, callback){
+											search = search.toLowerCase();
+											var ar = searchItems.filter(function(v){return v.value.toLowerCase().indexOf(search) != -1 || v.display.toLowerCase().indexOf(search) != -1;}).slice(0,8);
+											callback.call({}, ar);
+										}},
+										{'type':'list','id':'hh','display':'List Creation','value':['f','g','h'],
+											'options':
+											[
+												{'display':'Option A','value':'a'},
+												{'display':'Option B','value':'b'},
+												{'display':'Option C','value':'c'},
+												{'display':'Option D','value':'d'},
+												{'display':'Option E','value':'e'},
+												{'display':'Option F','value':'f'},
+												{'display':'Option g','value':'g'},
+												{'display':'Option h','value':'h'}
+											]
+										},
+										{'type':'list','id':'gg','display':'List Creation Search','value':[searchItems[2], searchItems[3], searchItems[4]],
+											'searchfn':function(search, callback){
+												search = search.toLowerCase();
+												var ar = searchItems.filter(function(v){return v.value.toLowerCase().indexOf(search) != -1 || v.display.toLowerCase().indexOf(search) != -1;}).slice(0,8);
+												callback.call({}, ar);
+											}
+										}
+									]
+								}
+							
+							]
+						});
+						
+						var loader = MControls.createLoader();
+							
+						$('#button_disabled_toggle').click(function(){
+							form1.toggleDisabled();
+							$('.getvalues').html( form1.getDisabled() );
+						});
+						
+						$('#button_values_get').click(function(){
+							var str = "", obj = form1.getCombinedValues();
+							for(var z in obj)
+							{
+								str += z + '=' + JSON.stringify( obj[z] ) + '<br /><hr />';
+							}
+							$('.getvalues').html( str );
+						});
+						
+						$('#button_values_modified_get').click(function(){
+							var str = "", obj = form1.getCombinedValues(true);
+							for(var z in obj)
+							{
+								str += z + '=' + JSON.stringify( obj[z] ) + '<br /><hr />';
+							}
+							$('.getvalues').html( str );
+						});
+						
+						$('#button_values_set').click(function(){
+							var vals = {
+								'a':'newvalueA',
+								'b':'999999999',
+								'c':'newvalueB',
+								'd':'c',
+								'e':searchItems[20],//{'display':'Opt Special','value':'special'},
+								'h':['c','d','e'],
+								'g':[searchItems[0], searchItems[1]],
+								'i':{
+									'1':'A','2':'B','3':'C','4':'D','s1':'E','s2':'F','s3':'G','s4':'H','s21':'I','s22':'J','s23':'K','s121':'L','s122':'M','s123':'N','s124':'O'
+								}
+							};
+							form1.setCombinedValues(vals);
+						});
+						
+						$('#button_values_modified').click(function(){						
+							$('.getvalues').html( form1.isModified() ? 'true' : 'false' );
+						});
+						
+						$('#button_loading').click(function(){
+							loader.show();
+							setTimeout(function(){loader.hide();},2000);
+						});
+						
+						$('#button_alert').click(function(){
+							MControls.alert("Alarmy!","Some Moar Text or description!!");
+						});
+						
+						$('#button_confirm').click(function(){
+							MControls.confirm("Confirmy!", "Can you confirm that ;) ?", function(t){alert(t);});
+						});
+						
+						$('#button_prompt').click(function(){
+							MControls.prompt({
+								'title':"Prompty!", 
+								'body':"Can you type some text please?", 
+								'placeholder':"some text here", 
+								'callback':function(t){alert(t);}
+							});
+						});
+					}, 100);
+				});
+			</script>
+		<!--/Scripts-->
+	</head>
+	<body>
+		<div style="margin:10px auto 0 auto;width:850px;min-height:400px;border:1px solid gray;padding: 15px 30px;">
+			<h2 style="margin: 0 0 10px 0;text-align: center;font-family: arial;font-size: 12px;font-style: italic;">Mafia Inputs Testing Suite</h2>
+			<div style="height:340px;">
+				<div id="target_container1" style="margin:0 0 20px 0;width:400px;float:left;"></div>
+				<div id="target_container2" style="margin:0 0 20px 0;width:400px;float:right;"></div>
+			</div>
+			<br />
+			<input type="button" value="Toggle Disabled" id="button_disabled_toggle" />
+			<input type="button" value="Set Values" id="button_values_set" />
+			<input type="button" value="Get Values" id="button_values_get" />
+			<input type="button" value="Get Modified Values" id="button_values_modified_get" />
+			<input type="button" value="Any Modified?" id="button_values_modified" />
+			<input type="button" value="Loading" id="button_loading" />
+			<input type="button" value="Alert!" id="button_alert" />
+			<input type="button" value="Confirm!" id="button_confirm" />
+			<input type="button" value="Prompt!" id="button_prompt" />
+			<br /><br />
+			<div class="getvalues"></div>
+			<br /><br />
+			<p>
+				Disabled, Modified, Warning, Value (including getCombinedValues, setCombinedValues for form/group)<br />
+				merge into mafglobal.<br/>
+				Disabled inputs dont fire mousedown in FF :(, find alternative to disabled inputs!! readonly? something infront of input to cover it? ALSO: in FF you cant drag on inputs for some reason?? (it doesnt seem to be a preventDefault, so some other reason? ** Maybe its the css dont drag property??? check this out :s
+			</p>
+		</div>
+	</body>
+</html>

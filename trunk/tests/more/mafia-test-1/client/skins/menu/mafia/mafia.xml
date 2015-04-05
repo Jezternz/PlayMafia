@@ -1,0 +1,185 @@
+<div id="menu_mafia">
+	<div id="mafioso_background" class="animated">&nbsp;</div>
+	<div class="center_title"><div class="main_title">&nbsp;</div></div>
+	<div id="chat_footer" class="animated">
+		<div id="overlay_left">
+			<div id="button_home" class="overlay_button" title="Welcome home son">&nbsp;</div>
+		</div>
+		<div id="overlay_chatbox">
+			<div id="overlay_chatbox_inner">
+				<div id="chatbox_head">
+					<div id="chatbox_head_text">Chat: Username</div>
+					<div id="chatbox_head_minimize"><div class="head_icon"></div></div>
+					<div id="chatbox_head_close"><div class="head_icon"></div></div>
+				</div>
+				<div id="chatbox_container"></div>
+				<div id="chatbox_form_container">
+					<form type="post">
+						<input type="text" id="input_chat_chatmessage" class="mafinput" />
+						<input type="submit" id="button_chat_send" class="mafbutton" value="Send" />
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="overlay_mid"></div>
+		<div id="overlay_right">
+			<div id="friend_request_hint_container" class="animated">
+				<div id="friend_request_hint">_</div>
+				<div id="friend_request_hint_arrow"></div>
+			</div>
+			<div id="button_friends" class="overlay_button" title="Friends (You currently have none)">&nbsp;</div>
+		</div>
+		<div id="friends_listbox">
+			<div id="friends_head">
+				<div id="friends_title">Friends</div>
+			</div>
+			<div id="friends_mid">
+				<div id="friends_list">
+					<div class="friend_item friend_status_ingame">
+						<div class="friend_item_status" title="In-game"></div>
+						<div class="friend_item_name">JosiaMFire2</div>
+					</div>
+					<div class="friend_item friend_status_inlobby">
+						<div class="friend_item_status" title="In-game-lobby"></div>
+						<div class="friend_item_name">Anthrax</div>
+					</div>
+					<div class="friend_item friend_status_online">
+						<div class="friend_item_status" title="online"></div>
+						<div class="friend_item_name">Mini Flingy</div>
+					</div>
+					<div class="friend_item friend_status_offline">
+						<div class="friend_item_status" title="offline"></div>
+						<div class="friend_item_name">eeeeeee eee</div>
+					</div>
+				</div>
+				<div id="friend_requests_list">_</div>
+			</div>
+			<div id="friends_foot">
+				<div id="button_friends_add">+ Add a friend</div>
+				<div id="button_friends_requests">View requests</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel" page="menu">
+		<div id="menu_box" class="animated">
+			<div class="menu_button active" id="button_menu_tolisting"><span class="inner">Game Listing</span></div>
+			<div class="menu_spacer active">&nbsp;</div>
+			<div class="menu_button active" id="button_menu_rejoin"><span class="inner">Rejoin Game</span></div>
+			<div class="menu_button active" id="button_menu_ragequit"><span class="inner">Leave Game</span></div>
+			<div class="menu_spacer active">&nbsp;</div>
+			<div class="menu_button active" id="button_menu_settings"><span class="inner">Settings</span></div>
+			<div class="menu_button active" id="button_menu_logout"><span class="inner">Logout</span></div>
+		</div>
+	</div>
+	<div class="panel" page="settings">
+		<div class="center_box_x">
+			<div id="settings_box" class="animated">
+				<div class="tabs_header"></div>
+				<div class="tabs_body">
+					<div class="upper">
+						<div id="settings_container"></div>
+					</div>
+					<div class="lower">
+						<div class="left">
+							<input type="button" value="Discard Changes" class="mafbutton" id="button_settings_discard" />
+						</div>
+						<div class="right">
+							<input type="button" value="Save Changes" class="mafbutton" id="button_settings_save" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel" page="listing">
+		<div class="center_box_x">
+			<div id="listing_box" class="animated">
+				<div class="upper">
+					<div class="games_listing_container">
+						<div class="head">
+							<div class="head_inner">
+								<div class="row">
+									<div class="col p10"><div class="inner">Status</div></div>
+									<div class="col p10"><div class="inner">Players</div></div>
+									<div class="col p30"><div class="inner">Name</div></div>
+									<div class="col p45"><div class="inner">Settings</div></div>
+								</div>
+							</div>
+						</div>
+						<div class="body">
+							<div class="body_inner" id="games_listing_body"></div>
+						</div>
+					</div>
+				</div>
+				<div class="lower">
+					<div class="left">
+						<input type="button" value="Back To Menu" class="mafbutton" id="button_listing_back" />
+					</div>
+					<div class="right">
+						<input type="button" value="Create Game" class="mafbutton" id="button_listing_createserver" />
+						<input type="button" value="Join Game" class="mafbutton" id="button_listing_joinserver" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel" page="lobby">
+		<div class="center_box_x">
+			<div id="lobby_box">
+				<div class="bottom_container animated">
+					<div class="upper">	
+						<div id="lobby_chat_content"></div>				
+					</div>
+					<div class="lower">
+						<div class="right">
+							<form id="form_lobby_chat">
+								<input type="text" id="input_lobby_chatmessage" class="mafinput" name="lobby_chatmessage" />
+								<input type="submit" value="Send Chat" class="mafbutton" id="button_lobby_chatsend" />
+							</form>
+						</div>	
+					</div>
+				</div>
+				<div class="top_container animated">
+					<div class="upper">
+						<div id="game_settings_title">Josh's Game</div>
+						<div id="game_settings_container">_</div>
+					</div>
+					<div class="lower">
+						<div class="right">
+							<input type="button" value="Game Settings" class="mafbutton" id="button_lobby_settings" />
+							<input type="button" value="I'm Ready" class="mafbutton" id="button_lobby_ready" />
+						</div>	
+					</div>
+				</div>
+				<div class="right_container animated">
+					<div class="upper">
+						<div id="lobby_playerlist_connected"><span>_</span> player(s) connected</div>
+						<div id="lobby_playerlist_content"></div>
+					</div>
+					<div class="lower">
+						<div class="right">
+							<input type="button" value="Leave Game" class="mafbutton" id="button_lobby_leave" />
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="game_settings_editor_modal" class="hidden">
+			<div class="center_box_x center_box_y">
+				<div id="game_settings_editor" class="animated">
+					<div class="head">Game Settings</div>
+					<div class="body">_</div>
+					<div class="foot">
+						<div class="position_left">
+							<input id="button_lobby_settings_close" type="button" class="mafbutton" value="Return to Lobby">
+							<input id="button_lobby_settings_discard" type="button" class="mafbutton" value="Discard Changes">
+						</div>
+						<div class="position_right">
+							<input id="button_lobby_settings_save" type="button" class="mafbutton" value="Save Changes">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "name": "fileappend",
+  "main": "simple_write.js",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.8.15"
+  },
+  "dependencies": {
+  
+  }
+}
