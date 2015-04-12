@@ -1,26 +1,7 @@
-var DEBUG_CONSTANTS_OVERRIDE = {
-
-    PLAYMAFIA_DEBUG : true,
-    REDIS_URL : false,
-	CONSOLE_LOG_LEVEL : 99,
-	FILE_LOG_LEVEL : 99,
-    BETA_REG_KEY : "",
-    GAME_ZERO_CONNECTIONS_TIMEOUT : 5*60*1000,
-    MAFIA_PRE_TIME_DEFAULT : 5000,
-	MAFIA_PHASE_TIMES_DEFAULTS : [
-		15000,						// 20000 	NIGHT - Commit Actions Phase
-		5000,						// 8000		NIGHT - Resolve Actions Phase (extra time for private server messages)
-		5000,						// 40000	DAY - Discussion Phase
-		15000,						// 15000	DAY - Trial Phase
-		5000,						// 15000	DAY - Defence Phase
-		15000,						// 15000	DAY - Lynch Phase
-		5000,						// 8000	    DAY - Lynch Resolve Phase
-		5000						// 10000	DAY - Reflection Phase
-	]
-    
-}
-
 var CONSTANTS = {
+
+	// Enable Debug Mode when process.env.NODE_ENV != 'production'
+	PLAYMAFIA_DEBUG_CONSTANTS_OVERRIDE: false,
 	
 	// Debug on or off
 	PLAYMAFIA_DEBUG : false,
@@ -31,17 +12,17 @@ var CONSTANTS = {
 	// frequency to log performance statistics to output
 	PERFORMANCE_LOG_FREQ : 60000,
 	
-	// Level to log to output (higher = more output)
-	CONSOLE_LOG_LEVEL : 4,
+	// Level to log to output (1-5, higher = more output)
+	CONSOLE_LOG_LEVEL : 3,
 	
-	// level to log to file (higher = more output)
-	FILE_LOG_LEVEL : 5,
+	// level to log to file (1-5, higher = more output)
+	FILE_LOG_LEVEL : 3,
 	
 	// Log file directory
 	FILE_LOG_DIR : process.env.CLOUD_DIR ? process.env.CLOUD_DIR+"/" : "logs/",
 	
 	// Secret Beta Registration Key
-	BETA_REG_KEY : "nowplaymafia",
+	BETA_REG_KEY : "playmafia",
 	
 	// Time before a game will shutdown with no players connected
 	GAME_ZERO_CONNECTIONS_TIMEOUT : 15*60*1000,
@@ -86,16 +67,38 @@ var CONSTANTS = {
 	FILE_CLIENT_DIR : '/client/'
 }
 
+var DEBUG_CONSTANTS_OVERRIDE = {
+
+    PLAYMAFIA_DEBUG : true,
+    REDIS_URL : false,
+	CONSOLE_LOG_LEVEL : 99,
+	FILE_LOG_LEVEL : 99,
+    BETA_REG_KEY : "",
+    GAME_ZERO_CONNECTIONS_TIMEOUT : 5*60*1000,
+    MAFIA_PRE_TIME_DEFAULT : 5000,
+	MAFIA_PHASE_TIMES_DEFAULTS : [
+		15000,						// 20000 	NIGHT - Commit Actions Phase
+		5000,						// 8000		NIGHT - Resolve Actions Phase (extra time for private server messages)
+		5000,						// 40000	DAY - Discussion Phase
+		15000,						// 15000	DAY - Trial Phase
+		5000,						// 15000	DAY - Defence Phase
+		15000,						// 15000	DAY - Lynch Phase
+		5000,						// 8000	    DAY - Lynch Resolve Phase
+		5000						// 10000	DAY - Reflection Phase
+	]
+    
+}
+
 var Constants = new function(){
 	this.setupConstants = function(maf){
 		maf.constants = CONSTANTS;
-        if(process.env.NODE_ENV != 'production')
-        {
+		if(maf.constants.PLAYMAFIA_DEBUG_CONSTANTS_OVERRIDE && process.env.NODE_ENV != 'production')
+		{
             for(var key in DEBUG_CONSTANTS_OVERRIDE)
             {
                 maf.constants[key] = DEBUG_CONSTANTS_OVERRIDE[key];
             }
-        }
+		}
 	}
 }();
 

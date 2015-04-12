@@ -1,6 +1,6 @@
 var 
 	redis = require('redis'),
-	bcrypt = require('bcrypt'),
+	bcrypt = require('bcrypt-nodejs'),
     rPubSub = require('rpsc'),
     entities = require('entities');
 	
@@ -39,7 +39,7 @@ var GameClient = function(){
         // Get new User Id
         db.incr('maf:users:idcounter', function(err, userid) {
             // Generate our password hash
-            bcrypt.hash(password, 10, function(err, pwhash) {
+            bcrypt.hash(password, bcrypt.genSaltSync(10), function(){}, function(err, pwhash) {
                 // Register user hash in table
                 var realusername = sanatizeUsername(username);
                 maf.log('Successfull register: userid=', userid, ' username='+username, ' ip=', ip, maf.loglevel.NORMAL);		
@@ -871,7 +871,7 @@ var GameClient = function(){
 			
 		}
 		var generateRememberMeHash = function(userid, pwhash, callback){
-            bcrypt.hash(userid.toString()+pwhash, 10, function(err, hash) {
+            bcrypt.hash(userid.toString()+pwhash, bcrypt.genSaltSync(10), function(){}, function(err, hash) {
                 db.setex('maf:users:'+userid+':rememeberme', maf.constants.LOGIN_REMEMBER_ME_TIME, hash, function(err){
                     if(err){
                         maf.log('Failed to set rememberme: ', err, maf.loglevel.WARNING);

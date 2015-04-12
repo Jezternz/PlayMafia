@@ -9,10 +9,12 @@
   "dependencies": {
     "entities": "0.3.0",
     "redis": "0.7.1",
-    "hiredis": "0.1.14",
     "rpsc":"0.0.2",
-    "bcrypt": "0.7.4",
+    "bcrypt-nodejs": "0.0.3",
     "express": "3.1.0",
     "sockjs": "0.3.7"
+  },
+  "optionalDependencies": {
+    "hiredis": "0.1.14"
   }
 }
