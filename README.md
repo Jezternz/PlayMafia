@@ -34,7 +34,7 @@ A server admin can simply launch the PlayMafia code, any number of users can the
 * Simply run "node index.js" to run the server script, once this is running you should be ready to go!
 
 ##### Configuration
-* For configuration options, see "trunk\game\server\mafia.constants.js", the game server must be restarted to use changes to mafia.constants.js
+* For configuration options, see "[trunk\game\server\mafia.constants.js](https://github.com/Jezternz/PlayMafia/blob/master/trunk/game/server/mafia.constants.js)", the game server must be restarted to use changes to mafia.constants.js
 
 ## Codebase & Notes for production
 ##### Administrator Notes
@@ -46,14 +46,15 @@ A server admin can simply launch the PlayMafia code, any number of users can the
 * [SockJS](https://github.com/sockjs/sockjs-node) - This enabled realtime messaging between the server and the clients (web browsers).
 
 ##### Game modifications
-The game was intentionally created to be as modular as possible, to enable ui skinning, additional roles etc.
-* The role stats can be easily tweaked (JSON format), and are located in "trunk\game\server\mafia.config.raw.js".
-* The role name options can also be tweaked (JSON format), and are located in "trunk\game\server\mafia.names.raw.js".
-* The role interaction and game logic for the action phase, is all located in "trunk\game\server\mafia.gamelogic.js".
+The game was intentionally created to be modular, to enable ui skinning, additional roles etc.
+* The role stats can be easily tweaked (JSON format), and are located in "[trunk\game\server\mafia.config.raw.js](https://github.com/Jezternz/PlayMafia/blob/master/trunk/game/server/mafia.config.raw.js)".
+* The role name options can also be tweaked (JSON format), and are located in "[trunk\game\server\mafia.names.raw.js](https://github.com/Jezternz/PlayMafia/blob/master/trunk/game/server/mafia.names.raw.js)".
+* The role interaction and game logic for the action phase, is all located in "[trunk\game\server\mafia.gamelogic.js](https://github.com/Jezternz/PlayMafia/blob/master/trunk/game/server/mafia.gamelogic.js)".
 
 ##### Area for improvements
 * Promises - The code should really be using promises to handle the Asynchrounous callbacks. I started writing this long before promises were commonplace in JS. This code suffers from serious callback hell unfortunately.
 * Error handling - So long as the redis connection is stable, things tend to work, however the code lacks propper error handling and failure callbacks, plenty of room of improvment for this.
+* Code could be improved by breaking it up into further files.
 
 ## Client
 * The game was written for google chrome, their are minor UI bugs with firefox and IE10+.
